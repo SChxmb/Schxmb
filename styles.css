@@ -29,13 +29,14 @@
     background-color: #222;
 }
 body {
-    color: #FFF;
     background-color: #222;
 }
 h1 {
+    color: #AAA;
     font-size: 4em;
     margin-top: 1.5em;
 }
 p {
+    color: #AAA;
     font-size: 2em;
 }
