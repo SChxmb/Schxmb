@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Temp Website</title>
+        <link rel="stylesheet" href="Layout/main.css" id="layoutcss">
+        <link rel="stylesheet" id="platformcss">
+        <link rel="stylesheet" id="colorcss">
+        <script src="main.js"></script>
+    </head>
+    <body onload="sizeCheck();colorCheck();tabBTN('1');" onresize="sizeCheck()">
+        <nav>
+            <table>
+                <tr>
+                    <th id="nav1" onclick='tabBTN("1")'>Home</th>
+                    <th id="nav2" onclick='tabBTN("2")'>Updates</th>
+                    <th id="nav3" onclick='tabBTN("3")'>Portfolio</th>
+                    <th id="nav4" onclick='tabBTN("4")'>Upcoming</th>
+                    <th id="nav5">7x3.dev</th>
+                </tr>
+            </table>
+        </nav>
+        <main>
+            <aside>
+                <div id="sidebarsel" onclick="openAside()">></div>
+                <table id="sidebar" style="width: 100%">
+                    <tr><th>hello</th></tr>
+                    <tr><th>hello</th></tr>
+                </table>
+            </aside>
+            <article>
+                <div id="main1">
+                    <h1>Title</h1>
+                    <p>text but like SPOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOki</p>
+                </div>
+            </article>
+        </main>  
+    </body>
+</html>

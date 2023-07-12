@@ -1,0 +1,14 @@
+#nav5 {display: none;}
+nav table tr th {width: 25% !important;}
+aside table {display: none;}
+article div {width: 100% !important;}
+#sidebarsel {display: block !important;}
+table.showsbar {
+    display: block !important;
+    position: fixed;
+    float: left;
+    left: 75%;
+}
+div.showsbar {
+    right: 25% !important;
+}
