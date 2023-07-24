@@ -1,9 +1,0 @@
-#nav5 {display: none;}
-nav table tr th {width: 25% !important;}
-aside {display: none; position: absolute; right:0px; width: 50% !important;}
-article div {width: 100% !important;}
-#sidebarsel {display: block !important; z-index: 10;}
-.showsbar {display: block; z-index: 1;}
-div.showsbar {
-    right: 49.9% !important;
-}
