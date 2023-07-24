@@ -1,0 +1,13 @@
+body {
+    background-color: #1D5B79;
+}
+nav table {
+    color: #b7db72;
+    background-color: #468B97;
+}
+nav table tr th:hover {
+    color: #FFF;
+}
+.selected {
+    background-color: #1D5B79;
+}
