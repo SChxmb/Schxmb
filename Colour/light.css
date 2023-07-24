@@ -1,0 +1,27 @@
+body {
+    background-color: #FBFAEE;
+}
+nav table {
+    color: #006E60;
+    background-color: #9DC392;
+}
+nav div {
+    background-color: #298A6D;
+}
+nav table tr th:hover {
+    color: #FFF;
+}
+aside {
+    background-color: #9DC392;
+    color: #006E60;
+}
+#sidebarsel{
+background-color: #298A6D;
+}
+th.selected {
+    color: #CFE0AD;
+    background-color: #298A6D;
+}
+article {
+    color: darkgoldenrod;
+}
