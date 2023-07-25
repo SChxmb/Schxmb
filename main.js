@@ -21,6 +21,7 @@ function openAside() {
         sbar.classList.remove("showsbar")
         sbarsel.classList.remove("showsbar");
     }
+    refreshAside()
 }
 function tabBTN(selpageid) {
     for (let currSel of document.getElementsByClassName("selected")) {

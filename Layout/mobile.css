@@ -1,5 +1,8 @@
-* {font-size: xx-large;}
 #nav5 {display: none;}
+nav table tr th {font-size:3em;}
+h1, h2, h3, h4 {font-size: 3em;}
+article p {font-size: 2em;}
+#nullDiv {height: 5.5em !important;}
 nav table tr th {width: 25% !important;}
 aside {display: none; position: absolute; right:0px; width: 50% !important;}
 article div {width: 100% !important;}
