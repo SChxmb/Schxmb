@@ -1,0 +1,46 @@
+body {
+    background-color: var(--bg1);
+}
+nav table {
+    color: var(--navTxt);
+    background-color: var(--navBg);
+}
+nav table tr th:hover {
+    color: var(--hover);
+}
+nav div {
+    background-color: var(--navSel);
+}
+nav th.seltab {
+    color: var(--navSelTxt);
+    background-color: var(--navSel);
+}
+main {
+    color: var(--mainTxt)
+}
+#toolBtns li {
+    outline-color: var(--toolOutl);
+    background-color: var(--toolBg);
+}
+#toolBtns li.seltool{
+    outline-color: var(--toolSelOutl);
+    background-color: var(--toolSelBg);
+}
+#t0_table tr td {
+    border-color: var(--toolSelOutl) !important;
+}
+.rCol0 {
+    background-color: var(--rCol0);
+}
+.rCol1 {
+    background-color: var(--rCol1);
+}
+.rCol2 {
+    background-color: var(--rCol2);
+}
+.rCol3 {
+    background-color: var(--rCol3);
+}
+.rCol4 {
+    background-color: var(--rCol4);
+}

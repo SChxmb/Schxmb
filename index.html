@@ -1,42 +1,84 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <title>Temp Website</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
         <link rel="stylesheet" href="Layout/main.css" id="layoutcss">
-        <link rel="stylesheet" id="platformcss">
-        <link rel="stylesheet" id="colorcss">
+        <link rel="stylesheet" href="Colour/dark.css" id="colorcss">
+        <link rel="stylesheet" href="Colour/cscheme.css">
         <script src="main.js"></script>
     </head>
-    <body onload="sizeCheck();colorCheck();tabBTN('1');" onresize="sizeCheck()" style="margin: 0px; padding: 0px;">
-        <nav>
-            <table>
+
+    <body onload="colorCheck();topBtn(1);toolBTN(0);t0_init();" style="margin: 0px; padding: 0px;">
+        
+        <nav> <!-- This is the topbar -->
+            <table id="topbar">
                 <tr>
-                    <th id="nav1" onclick='tabBTN("1")'>Home</th>
-                    <th id="nav2" onclick='tabBTN("2")'>Updates</th>
-                    <th id="nav3" onclick='tabBTN("3")'>Portfolio</th>
-                    <th id="nav4" onclick='tabBTN("4")'>Upcoming</th>
+                    <th onclick='topBtn(0)'>Home</th>
+                    <th onclick='topBtn(1);toolBTN(0);initTtbl();'>Tools</th>
+                    <th onclick='topBtn(2)'>Portfolio</th>
+                    <th onclick='topBtn(3)'>Upcoming</th>
                     <th id="nav5" onclick='test()'>7x3.dev</th>
                 </tr>
             </table>
             <div></div>
         </nav>
-        <div id="nullDiv"></div>
+        
+        <!-- Leaves gap between top and main -->
+        <div style="height: 3em;"></div> 
+        
         <main>
-            <div id="sidebarsel" onclick="openAside()">></div>
-            <aside>
-                <table id="sidebar" style="width: 100%">
-                    <tr><th>hello</th></tr>
-                    <tr><th>hello</th></tr>
-                </table>
-            </aside>
-            <article>
-                <div id="main1">
-                    <h1>Title</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
+            <div id="pg0"> <!-- Home -->
+                <h1>Title</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+            
+            <div id="pg1"> <!-- Tools -->
+               <h2>Thingymajigs And Doohickeys</h2>
+               <p style="padding-left: 2.5em; padding-right: 2.5em;">
+                    A really amazing assortment of <s>random shit</s> <b>USEFUL
+                    TOOLS</b>, disorganised so you don't get bored and totally
+                    not because I can't be arsed making seperate places for every
+                    little bit and bob. Press a button and see what it does
+                    <s>if it works</s>.
+                </p>
+                <p id="dev"></p>
+                <ul id="toolBtns"> <!-- Buttons -->
+                    <li id="tBtn0" onclick="toolBTN(0); t0_init();">
+                        <b>Timetable Comparison</b><br><br>I mean not very useful to 
+                        anyone but me but yk i'll put it out here regardless<br>&nbsp;
+                    </li>
+                    <li id="tBtn1" onclick="toolBTN(1);">hi<br><br><br><br>&nbsp;</li>
+                </ul>
+
+                <div id="t0_div"> <!-- Timetable -->
+                    <form style="float:left;width:100%;">
+
+                        <label for="t0_day">Choose a day:</label>
+                        <select id="t0_day" name="t0_day">
+                            <option value="1">Mon</option>
+                            <option value="2">Tue</option>
+                            <option value="3">Wed</option>
+                            <option value="4">Thur</option>
+                            <option value="5" selected>Fri</option>
+                            <option value="6">Sat</option>
+                            <option value="0">Sun</option>
+                        </select>
+
+                        <label for="aeskey">AES-256 Key:</label>
+                        <input type="password" id="t0_aeskey" name="aeskey" value="Not implemented yet">
+                        <label for="t0_name">Select Timetable</label>
+                        <select id="t0_name" name="t0_name"></select>
+                        <input type="button" value="Add" onclick="t0_add()">
+                        <input type="button" value="Reload" onclick="t0_init()">
+                    </form>
+                    <table id="t0_table">
+                    </table>
                 </div>
-            </article>
+            </div>
         </main>  
     </body>
 </html>

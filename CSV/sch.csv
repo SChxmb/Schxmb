@@ -1,0 +1,29 @@
+Me
+
+sunday,
+monday,Physics,11:30,12:45,Maths,13:30,14:45,Computer Science,14:45,16:00
+tuesday,Physics,13:30,14:45,Maths,14:45,16:00
+wednesday,Computer Science,8:45,10:00,Physics,13:30,16:00
+thursday,Computer Science,8:45,11:15,Maths,11:30,12:45
+friday,Maths,10:00,11:15
+saturday,
+
+Ryan
+
+sunday,
+monday,IT,10:15,11:15,IT,13:30,14:45,Computer Science,14:45,16:00
+tuesday,IT,12:15,13:30,IT,14:45,16:00
+wednesday,Computer Science,8:45,10:00,IT,10:15,11:30
+thursday,Computer Science,8:45,11:30,IT,12:15,13:30
+friday,IT,8:45,11:15
+saturday,
+
+Harry
+
+sunday,
+monday,Computer Science,8:45,11:30,Whatever ccl is,14:45,16:00
+tuesday,History,10:00,11:15,Computer Science,12:15,13:30
+wednesday,ccl again,8:45,10:00,Computer Science,10:15,11:30,History,12:15,13:30
+thursday,CCL,10:00,11:15,History,13:30,14:45
+friday,...ccl,13:30,14:45,History,14:45,16:00
+saturday,

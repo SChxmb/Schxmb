@@ -1,0 +1,18 @@
+:root {
+    --bg1: #252526;
+    --navBg: #1e1e1e;
+    --navSelTxt:#CFE0AD;
+    --navTxt: #00AC85;
+    --navSel: #252526;
+    --mainTxt: #4cbbe0;
+    --toolBg: #1e1e1e;
+    --toolOutl: #1a1a1a;
+    --toolSelOutl: #12103b;
+    --toolSelBg: #0a0922;
+    --rCol0: red;
+    --rCol1: cyan;
+    --rCol2: yellow;
+    --rCol3: green;
+    --rCol4: pink;
+    --hover: #fff;
+}
