@@ -63,21 +63,30 @@
                             <option value="2">Tue</option>
                             <option value="3">Wed</option>
                             <option value="4">Thur</option>
-                            <option value="5" selected>Fri</option>
+                            <option value="5">Fri</option>
                             <option value="6">Sat</option>
                             <option value="0">Sun</option>
                         </select>
 
-                        <label for="aeskey">AES-256 Key:</label>
-                        <input type="password" id="t0_aeskey" name="aeskey" value="Not implemented yet">
                         <label for="t0_name">Select Timetable</label>
                         <select id="t0_name" name="t0_name"></select>
                         <input type="button" value="Add" onclick="t0_add()">
                         <input type="button" value="Reload" onclick="t0_init()">
+
+                        <label for="t0_mode"></label>
+                        <select id="t0_mode" name="t0_mode">
+                            <option value="CDay"">Compare Day</option>
+                            <option value="SFull">Show Full Timetable</option>
+                            <option value="Toverlay">Show Timetable Overlay</option>
+                        </select>
+
                     </form>
                     <table id="t0_table">
                     </table>
                 </div>
+            </div>
+            <div id="pg2">
+                hi trey
             </div>
         </main>  
     </body>

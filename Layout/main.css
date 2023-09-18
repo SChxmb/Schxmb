@@ -69,9 +69,9 @@ main div.seltab {
     border: 2px solid;
 }
 .t0_selTime td {
-    background-color: #43d1f57e;
+    background-color: #6bb4c7;
 }
 
-.t0_selTime td:first-child {
-    background-color: #29c8f0af;
+.t0_selTime td:first-child, .t0_selTime td:empty {
+    background-color: #287a8f !important;
 }
