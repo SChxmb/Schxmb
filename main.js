@@ -14,7 +14,7 @@ function toolBTN(i) {
 }
 
 function colorCheck() {
-    document.getElementById("colorcss").href = "Colour/light.css";
+    document.getElementById("colorcss").href = "Colour/dark.css";
 }
 
 
@@ -50,11 +50,20 @@ function ret (x) {
 
 // Tool 0, Timetable
 
+async function t0_autofill() {
+    for (let i=0; i < t0_name.length; i++) {
+        document.getElementById("t0_name").selectedIndex = i
+        await t0_add()
+    }
+}
 
 async function t0_init() {
 
     while (document.getElementById('t0_table').rows.length > 0) {document.getElementById('t0_table').deleteRow(0);}
     while (document.getElementById('t0_name').options.length > 0) {document.getElementById('t0_name').remove(0);}
+
+    let d = new Date()
+    document.getElementById("t0_day").selectedIndex = d.getDay()
 
     for (let i=0; i <= 4; i++) {rmvAllClass("rCol"+i)}
 
@@ -94,6 +103,8 @@ async function t0_init() {
         nameSel[nameSel.length] = new Option(CSV[i * 10][0], i * 10)
     
     }
+
+    t0_autofill()
 
 }
 

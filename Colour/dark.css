@@ -9,10 +9,10 @@
     --toolOutl: #1a1a1a;
     --toolSelOutl: #12103b;
     --toolSelBg: #0a0922;
-    --rCol0: red;
-    --rCol1: cyan;
-    --rCol2: yellow;
+    --rCol0: #132C19;
+    --rCol1: #154B41;
+    --rCol2: #31522D;
     --rCol3: green;
-    --rCol4: pink;
+    --rCol4: #3F5A44;
     --hover: #fff;
 }

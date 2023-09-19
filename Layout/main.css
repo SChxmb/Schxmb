@@ -72,6 +72,6 @@ main div.seltab {
     background-color: #6bb4c7;
 }
 
-.t0_selTime td:first-child, .t0_selTime td:empty {
+.t0_selTime td:first-child, .t0_selTime td:not(:empty) {
     background-color: #287a8f !important;
 }
