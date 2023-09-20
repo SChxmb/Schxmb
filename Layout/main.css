@@ -53,21 +53,38 @@ main div.seltab {
 #t0_div form select, #t0_div form input {
     background-color: transparent;
 }
+
 #t0_div form {
     padding-bottom: 1em;
 }
+
 #t0_div table {
     border-collapse: collapse;
 }
+
 #t0_table tr td:first-child, #t0_table tr:first-child td {
     padding: 0.5em;
     border: 2px solid;
     border-left-width: 0px;
     cursor: pointer;
 }
-#t0_table tr td:hover {
+
+#t0_table tr:first-child {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 3em;
+}
+
+#t0_table tr td:hover:not(:first-child) {
     border: 2px solid;
 }
+
+.rCol0, .rCol1, .rCol2, .rCol3, .rCol4 {
+    border: 2px solid;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
 .t0_selTime td {
     background-color: #6bb4c7;
 }

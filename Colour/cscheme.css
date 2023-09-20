@@ -15,7 +15,7 @@ nav th.seltab {
     color: var(--navSelTxt);
     background-color: var(--navSel);
 }
-main {
+main * {
     color: var(--mainTxt)
 }
 #toolBtns li {
@@ -27,7 +27,7 @@ main {
     background-color: var(--toolSelBg);
 }
 #t0_table tr td {
-    border-color: var(--toolSelOutl) !important;
+    border-color: var(--toolOutl) !important;
 }
 .rCol0 {
     background-color: var(--rCol0);
@@ -43,4 +43,8 @@ main {
 }
 .rCol4 {
     background-color: var(--rCol4);
+}
+#t0_table tr td:first-child, #t0_table tr:first-child td {
+    color: var(--otherTxt);
+    background-color: var(--toolBg);
 }

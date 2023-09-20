@@ -1,6 +1,11 @@
 // page functions
  
 
+function init() {
+    let d = new Date()
+    document.getElementById("t0_day").selectedIndex = d.getDay()
+}
+
 function topBtn(i) {
     rmvAllClass("seltab")
     document.getElementById("topbar").rows[0].cells[i].classList.add("seltab");
@@ -14,7 +19,7 @@ function toolBTN(i) {
 }
 
 function colorCheck() {
-    document.getElementById("colorcss").href = "Colour/dark.css";
+    document.getElementById("colorcss").href = "Colour/light.css";
 }
 
 
@@ -39,7 +44,9 @@ async function readCSV(loc){
     return output
 }
 async function test() {
-    t0_shrink()
+    let temp = document.getElementById("colorcss")
+    if (temp.href.toString().search("Colour/dark.css") >= 0) {temp.href = "Colour/light.css"}
+    else {temp.href = "Colour/dark.css"}
     document.getElementById("topbar").rows[0].cells[0].innerHTML = Math.floor(Math.random() * 100);
 }
 function ret (x) {
@@ -57,13 +64,9 @@ async function t0_autofill() {
     }
 }
 
-async function t0_init() {
-
+async function t0_reloadSide() {
     while (document.getElementById('t0_table').rows.length > 0) {document.getElementById('t0_table').deleteRow(0);}
     while (document.getElementById('t0_name').options.length > 0) {document.getElementById('t0_name').remove(0);}
-
-    let d = new Date()
-    document.getElementById("t0_day").selectedIndex = d.getDay()
 
     for (let i=0; i <= 4; i++) {rmvAllClass("rCol"+i)}
 
@@ -92,8 +95,13 @@ async function t0_init() {
         table.insertRow(-1).insertCell(0).outerHTML = `<td onclick="t0_highRow(${i+1})">${from} - ${to}</td>`
     
     }
+}
+
+async function t0_init() {
+
+    await t0_reloadSide()
     
-    table.insertRow(-1).insertCell(0).outerHTML = `<td>...</td>`
+    document.getElementById("t0_table").insertRow(-1).insertCell(0).outerHTML = `<td>...</td>`
 
     var CSV = await readCSV("CSV/sch.csv")
     let nameSel = document.getElementById("t0_name").options

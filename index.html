@@ -10,7 +10,7 @@
         <script src="main.js"></script>
     </head>
 
-    <body onload="colorCheck();topBtn(1);toolBTN(0);t0_init();" style="margin: 0px; padding: 0px;">
+    <body onload="colorCheck();topBtn(1);toolBTN(0);t0_init();init();" style="margin: 0px; padding: 0px;">
         
         <nav> <!-- This is the topbar -->
             <table id="topbar">
@@ -58,8 +58,8 @@
                     <form style="float:left;width:100%;">
 
                         <label for="t0_day">Choose a day:</label>
-                        <select id="t0_day" name="t0_day">
-                        <option value="0">Sun</option>
+                        <select id="t0_day" name="t0_day" onchange="initTtbl();">
+                            <option value="0">Sun</option>
                             <option value="1">Mon</option>
                             <option value="2">Tue</option>
                             <option value="3">Wed</option>
