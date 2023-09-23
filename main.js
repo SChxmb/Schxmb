@@ -3,7 +3,7 @@
 
 function init() {
     let d = new Date()
-    document.getElementById("t0_day").selectedIndex = d.getDay()
+    document.getElementById("t0_day").selectedIndex = 5//d.getDay()
 }
 
 function topBtn(i) {
@@ -62,17 +62,13 @@ function ret (x) {
 // Tool 0, Timetable
 
 var CSV = []
-
-async function t0_autofill() {
-    let nameBox = document.getElementById('t0_name')
-    for (let i=0; i < nameBox.options.length; i++) {
-        await t0_add(i, document.getElementById("t0_day").selectedIndex, 0)
-    }
-}
+var start = 4096
+var end = 0
+const minSep = 15
 
 async function t0_init() {
 
-    await t0_reload()
+    await t0_reloadBase()
     
     CSV = await readCSV("CSV/sch.csv")
     
@@ -82,13 +78,28 @@ async function t0_init() {
         nameSel[nameSel.length] = new Option(CSV[i * 10][0], i * 10)
     }
 
-//    await t0_autofill()
+    await t0_autofill()
 
 }
 
-async function t0_reload() {
+async function t0_autofill() {
+    let mode = document.getElementById("t0_mode").value
+    if (mode == "CDay") {
+        let nameBox = document.getElementById('t0_name')
+        
+        for (let i=0; i < nameBox.options.length; i++) {
+            await t0_addCompare(i, document.getElementById("t0_day").selectedIndex)
+        }
+        t0_shrink()
+    } else if (mode == "Toverlay") {
+        await t0_ttblOverlay_setup()
+        for (i=0; i < 5; i++) {await t0_ttblOverlay_add(i)}
+        await t0_ttblOverlay_reCol()
+    }
+}
 
-    const minSep = 15
+async function t0_reloadBase() {
+
     var table = document.getElementById("t0_table")
 
     while (table.rows.length > 0) {table.deleteRow(0);}
@@ -114,65 +125,8 @@ async function t0_reload() {
 
 }
 
-async function t0_add(nameIndex, dayIndex, mode) {
-
-    let table = document.getElementById("t0_table")
-    let rows = table.rows
-    let selName = document.getElementById("t0_name").options[nameIndex]
-
-    let spacer = parseInt(rows[0].cells[0].innerHTML)
-    let dayPlan = CSV[parseInt(selName.value)+ 2 + dayIndex]
-    let cellPos = rows[0].cells.length
-
-    let tempFSpots = []
-
-    table.style.width = (parseInt(table.style.width.replace("%","")) + 20).toString() + "%"
-
-    for (let i=0; i < rows.length-1; i++) {rows[i].insertCell(cellPos).outerHTML = `<td onclick="t0_highRow(${i})"></td>`}
-
-    rows[0].cells[cellPos].innerHTML = selName.text
-
-    for (let i = 0; i < (dayPlan.length - 1) / 3; i++) {
-        
-        let subject = dayPlan[i*3+1]
-        let start = parseInt(dayPlan[i*3+2].split(":")[0])*60 + parseInt(dayPlan[i*3+2].split(":")[1])
-        let end = parseInt(dayPlan[i*3+3].split(":")[0])*60 + parseInt(dayPlan[i*3+3].split(":")[1])
-        
-        let sIndx = Math.floor(start/spacer) + 1
-        let rCol = "rCol" + Math.floor(Math.random() * 10)%5
-
-        if (mode == 0) {
-            for (let j = 1; j <= rows.length; j++) {
-
-                let rtime = (j - 1) * spacer
-            
-                if (j == sIndx) {rows[j].cells[cellPos].innerHTML = subject ; rows[j].cells[cellPos].classList.add(rCol) }
-                
-                else if (j - 1 == sIndx && rtime < end && (rows[j].cells[cellPos].innerHTML == "" || rows[j].cells[cellPos].innerHTML == "^")) {rows[j].cells[cellPos].innerHTML = dayPlan[i*3+2]  + " To " + dayPlan[i*3+3]; rows[j].cells[cellPos].classList.add(rCol)}
-                else if (j - 1 == sIndx) {rows[j-1].cells[cellPos].innerHTML += ": " + dayPlan[i*3+2] + " To " + dayPlan[i*3+3]}
-                else if (((start < rtime) && (rtime < end))&&(rows[j].cells[cellPos].innerHTML == "")) {rows[j].cells[cellPos].innerHTML = "^"; rows[j].cells[cellPos].classList.add(rCol)}
-                
-            }
-        }
-
-        else if (mode == 1) {
-            
-            for (let j = 1; j <= rows.length; j++) {
-                let rtime = (j - 1) * spacer
-                if (((start <= rtime) && (rtime < end)) && (tempFSpots.indexOf(rtime) < 0)) {tempFSpots.push(rtime)}
-            }
-        
-        }
-    
-    }
-
-    if (mode == 0) {return}
-    else if (mode == 1) {return tempFSpots}
-
-}
-
 async function t0_getBusyTimes(nameIndex, dayIndex) {
-
+    
     let table = document.getElementById("t0_table")
     let rows = table.rows
     let selName = document.getElementById("t0_name").options[nameIndex]
@@ -183,6 +137,7 @@ async function t0_getBusyTimes(nameIndex, dayIndex) {
     let fSpotDesc = []
 
     for (let i = 0; i < (dayPlan.length - 1) / 3; i++) {
+        
         let subject = dayPlan[i*3+1]
         let start = parseInt(dayPlan[i*3+2].split(":")[0])*60 + parseInt(dayPlan[i*3+2].split(":")[1])
         let end = parseInt(dayPlan[i*3+3].split(":")[0])*60 + parseInt(dayPlan[i*3+3].split(":")[1])
@@ -202,7 +157,6 @@ async function t0_getBusyTimes(nameIndex, dayIndex) {
         fSpotDesc.push([subject, sIndx, lenCount, `${dayPlan[i*3+2]} to ${dayPlan[i*3+3]}`])
     
     }
-
     return fSpotDesc
 
 }
@@ -217,7 +171,7 @@ async function t0_addCompare(nameIndex, dayIndex) {
     table.style.width = (parseInt(table.style.width.replace("%","")) + 20).toString() + "%"
     for (let i=0; i < rows.length-1; i++) {rows[i].insertCell(cellPos).outerHTML = `<td onclick="t0_highRow(${i})"></td>`}
     rows[0].cells[cellPos].innerHTML = selName.text
-
+    
     let tDesc = await t0_getBusyTimes(nameIndex, dayIndex)
     
     for (let i=0; i < tDesc.length; i++) {
@@ -226,33 +180,90 @@ async function t0_addCompare(nameIndex, dayIndex) {
         let sIndx = tDesc[i][1]
         let lenCount = tDesc[i][2]
         let times = tDesc[i][3]
+        let rCol = "rCol" + Math.floor(Math.random() * 10)%5
+        
+        rows[sIndx].cells[cellPos].innerHTML = subject
+        for (k=0; k<5; k++) {rows[sIndx].cells[cellPos].classList.remove("rCol" + k)}
+        rows[sIndx].cells[cellPos].classList.add(rCol)
 
-        for (let j=sIndx; j < sIndx + lenCount; j++) {
-            if (j == sIndx) {rows[j].cells[cellPos].innerHTML = subject && times}
-            else if (rows[j].cells[cellPos].innerHTML == "") {
-                rows[j].cells[cellPos].innerHTML = "^"
+        if ((lenCount > 1) && (rows[sIndx + 1].cells[cellPos].innerHTML == "" || rows[sIndx + 1].cells[cellPos].innerHTML == "^")) {
+            
+            rows[sIndx + 1].cells[cellPos].innerHTML = times
+            for (k=0; k<5; k++) {rows[sIndx + 1].cells[cellPos].classList.remove("rCol" + k)}
+            rows[sIndx + 1].cells[cellPos].classList.add(rCol)
+            
+            for (j=sIndx+1; j < sIndx + lenCount; j++) {
+                if (rows[j].cells[cellPos].innerHTML == "") {
+                    
+                    rows[j].cells[cellPos].innerHTML = "^"
+                    rows[j].cells[cellPos].classList.add(rCol)
+                
+                }
+            
             }
+        
         }
+        
     }
 
 }
 
-async function t0_ttblOverlay_add(name) {
-    //for (let day = 0; day <= 6, day++) {}
+async function t0_ttblOverlay_setup() {
+
+    let table = document.getElementById("t0_table")
+    let rows = table.rows
+    
+    table.style.width = "100%"
+
+    for (let j=1; j < 6; j++) {rows[0].insertCell(j).outerHTML = `<td style="z-index:10;" onclick="t0_highRow(${0})">${document.getElementById("t0_day").options[j].text}</td>`}
+
+    for (let i=1; i < rows.length - 1; i++) {
+        for (let j=1; j < 6; j++) {rows[i].insertCell(j).outerHTML = `<td style="background-color:Red; width:15%;" onclick="t0_highRow(${i})">0</td>`}
+    }
+
+}
+
+async function t0_ttblOverlay_add(nameIndex) {
+
+    let rows = document.getElementById("t0_table").rows
+
+    for (let day = 1; day < 6; day++) {
+
+        let fSpotDesc = await t0_getBusyTimes(nameIndex, day)
+        
+        for (let i=0; i < fSpotDesc.length; i++) {
+            let sIndx = fSpotDesc[i][1]
+            let lenCount = fSpotDesc[i][2]
+            for (j=sIndx; j < sIndx + lenCount; j++) {
+                rows[j].cells[day].innerHTML = parseInt(rows[j].cells[day].innerHTML) + 1
+            }
+        }
+    }
+}
+
+async function t0_ttblOverlay_reCol() {
+
+    t0_shrink()
+
+    let rows = document.getElementById("t0_table").rows
+
+    for (let day = 1; day < 6; day++) {
+        for (let i = start-1; i <= end + 1; i++) {
+            rows[i].cells[day].style.opacity = parseInt(rows[i].cells[day].innerHTML) / 5
+        }
+    }
 }
 
 function t0_shrink() {
 
     var rows = document.getElementById("t0_table").rows
-    var start = 4096
-    var end = 0
     
     rmvAllClass("t0_hide")
     
     for (let i = 1; i < rows.length; i++) {
         for (let j = 1; j < rows[i].cells.length; j++) {
-            if (!(rows[i].cells[j].innerHTML == "") && start > i) {start = i}
-            if (!(rows[i].cells[j].innerHTML == "") && end < i) {end = i}
+            if (!(rows[i].cells[j].innerHTML == "" || rows[i].cells[j].innerHTML == "0") && start > i) {start = i}
+            if (!(rows[i].cells[j].innerHTML == "" || rows[i].cells[j].innerHTML == "0") && end < i) {end = i}
         }
     }
     
