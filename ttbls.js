@@ -17,15 +17,22 @@ async function t0_init() {
 
     let nameSel = document.getElementById("t0_name")
 
+    while (nameSel.options.length > 0) {nameSel.remove(0)}
+
     for (let i = 0; i < CSV.length / 10; i++) {
         nameSel.options[nameSel.length] = new Option(CSV[i * 10][0], i * 10)
     }
+
+    let d = new Date()
+    document.getElementById("t0_day").selectedIndex = d.getDay()//5
 
     t0_reloadTtbl()
 
 }
 
 async function t0_reloadTtbl() {
+
+    t0_resetUIOptions();
 
     await t0_reloadBase()
 
@@ -228,6 +235,14 @@ function t0_resetUIOptions() {
         document.getElementById("t0_day").classList.add("t0_hideOption")
         document.getElementById("t0_add").classList.add("t0_hideOption")
         document.getElementById("t0_reload").classList.add("t0_hideOption")
+    } else if (mode == "Compare") {
+        document.getElementById("t0_nameLbl").classList.add("t0_hideOption")
+        document.getElementById("t0_name").classList.add("t0_hideOption")
+        document.getElementById("t0_add").classList.add("t0_hideOption")
+        document.getElementById("t0_reload").classList.add("t0_hideOption")
+    } else if (mode == "Overlay") {
+        document.getElementById("t0_dayLbl").classList.add("t0_hideOption")
+        document.getElementById("t0_day").classList.add("t0_hideOption")
     }
 
 }

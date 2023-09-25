@@ -8,9 +8,6 @@ async function init() {
     topBtn(1)
 
     toolBTN(0)
-
-    let d = new Date()
-    document.getElementById("t0_day").selectedIndex = 5//d.getDay()
     
     await t0_init()
 
