@@ -8,15 +8,16 @@
         <link rel="stylesheet" href="Colour/dark.css" id="colorcss">
         <link rel="stylesheet" href="Colour/cscheme.css">
         <script src="main.js"></script>
+        <script src="ttbls.js"></script>
     </head>
 
-    <body onload="colorCheck();topBtn(1);toolBTN(0);t0_init();init();" style="margin: 0px; padding: 0px;">
+    <body onload="init();" style="margin: 0px; padding: 0px;">
         
         <nav> <!-- This is the topbar -->
             <table id="topbar">
                 <tr>
                     <th onclick='topBtn(0)'>Home</th>
-                    <th onclick='topBtn(1);toolBTN(0);initTtbl();'>Tools</th>
+                    <th onclick='topBtn(1);toolBTN(0);'>Tools</th>
                     <th onclick='topBtn(2)'>Portfolio</th>
                     <th onclick='topBtn(3)'>Upcoming</th>
                     <th id="nav5" onclick='test()'>7x3.dev</th>
@@ -57,28 +58,29 @@
                 <div id="t0_div"> <!-- Timetable -->
                     <form style="float:left;width:100%;">
 
-                        <label for="t0_day">Choose a day:</label>
-                        <select id="t0_day" name="t0_day" onchange="t0_init();">
-                            <option value="0">Sun</option>
-                            <option value="1">Mon</option>
-                            <option value="2">Tue</option>
-                            <option value="3">Wed</option>
-                            <option value="4">Thur</option>
-                            <option value="5">Fri</option>
-                            <option value="6">Sat</option>
+                        <label id="t0_modeLbl" for="t0_mode">Select Mode: </label>
+                        <select id="t0_mode" name="t0_mode" onchange="t0_reloadTtbl();t0_resetUIOptions();">
+                            <option value="Compare">Compare Day</option>
+                            <option value="Full" selected>Show Full Timetable</option>
+                            <option value="Overlay">Show Timetable Overlay</option>
                         </select>
 
-                        <label for="t0_name">Select Timetable</label>
-                        <select id="t0_name" name="t0_name"></select>
-                        <input type="button" value="Add" onclick="t0_add()">
-                        <input type="button" value="Reload" onclick="t0_init()">
-
-                        <label for="t0_mode"></label>
-                        <select id="t0_mode" name="t0_mode">
-                            <option value="CDay"">Compare Day</option>
-                            <option value="SFull">Show Full Timetable</option>
-                            <option value="Toverlay" selected>Show Timetable Overlay</option>
+                        <label id="t0_nameLbl" for="t0_name">Select Name:</label>
+                        <select id="t0_name" name="t0_name" onchange="t0_reloadTtbl();"></select>
+                        
+                        <label id="t0_dayLbl" for="t0_day">Select day: </label>
+                        <select id="t0_day" name="t0_day" onchange="t0_reloadTtbl();">
+                            <option value="0">Sunday</option>
+                            <option value="1">Monday</option>
+                            <option value="2">Tuesday</option>
+                            <option value="3">Wednesday</option>
+                            <option value="4">Thursday</option>
+                            <option value="5">Friday</option>
+                            <option value="6">Saturday</option>
                         </select>
+                        
+                        <input id="t0_add" type="button" value="Add" onclick="t0_add()">
+                        <input id="t0_reload" type="button" value="Reload" onclick="t0_reloadTtbl();">
 
                     </form>
                     <table id="t0_table">

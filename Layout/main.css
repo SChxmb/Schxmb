@@ -45,7 +45,7 @@ main div.seltab {
     border-radius: 2em;}
 #toolBtns li:hover, nav table tr th:hover {
     cursor: pointer;}
-#pg1 div, .t0_hide {
+#pg1 div, .t0_hideCell, .t0_hideOption {
     display: none;}
 #pg1 div.seltool {
     display: block !important;
