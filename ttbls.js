@@ -23,6 +23,9 @@ async function t0_init() {
         nameSel.options[nameSel.length] = new Option(CSV[i * 10][0], i * 10)
     }
 
+    document.getElementById("t0_mode").selectedIndex = 0
+    nameSel.selectedIndex = 0
+
     let d = new Date()
     document.getElementById("t0_day").selectedIndex = d.getDay()//5
 
@@ -66,9 +69,11 @@ async function t0_autofill() {
         let nameBox = document.getElementById('t0_name')
 
         for (let i=1; i < 6; i++) {
-            await t0_addCompare(nameBox.selectedIndex, i)
+            await t0_addCompare(nameBox.selectedIndex, i, width="17%")
             document.getElementById("t0_table").rows[0].cells[i].innerHTML = document.getElementById("t0_day").options[i].text
         }
+
+        document.getElementById("t0_table").style.width = "100%"
 
         t0_shrink()
 
@@ -105,6 +110,10 @@ async function t0_reloadBase() {
 //
 // General Tools
 //
+
+function t0_deRTime(i) {
+    return `${Math.floor(i/60)}:${i%60}`;
+}
 
 function t0_shrink() {
 
@@ -160,7 +169,7 @@ async function t0_getBusyTimes(nameIndex, dayIndex) {
             
             let rtime = j * spacer
 
-            if ((start <= rtime) && (rtime < end)) {
+            if ((start - spacer + 1 <= rtime) && (rtime < end)) {
                 lenCount += 1
             }
         
@@ -177,7 +186,7 @@ async function t0_getBusyTimes(nameIndex, dayIndex) {
 // Options
 //
 
-async function t0_addCompare(nameIndex, dayIndex) {
+async function t0_addCompare(nameIndex, dayIndex, width="5em") {
 
     let table = document.getElementById("t0_table")
     let rows = table.rows
@@ -185,7 +194,7 @@ async function t0_addCompare(nameIndex, dayIndex) {
     let cellPos = rows[0].cells.length
 
     //table.style.width = (parseInt(table.style.width.replace("%","")) + 20).toString() + "%"
-    for (let i=0; i < rows.length-1; i++) {rows[i].insertCell(cellPos).outerHTML = `<td style="width:5em;" onclick="t0_highRow(${i})"></td>`}
+    for (let i=0; i < rows.length-1; i++) {rows[i].insertCell(cellPos).outerHTML = `<td style="width:${width};" onclick="t0_highRow(${i})"></td>`}
     rows[0].cells[cellPos].innerHTML = selName.text
     
     let tDesc = await t0_getBusyTimes(nameIndex, dayIndex)
@@ -261,7 +270,7 @@ async function t0_ttblOverlay_setup() {
     for (let j=1; j < 6; j++) {rows[0].insertCell(j).outerHTML = `<td style="z-index:10;">${document.getElementById("t0_day").options[j].text}</td>`}
 
     for (let i=1; i < rows.length - 1; i++) {
-        for (let j=1; j < 6; j++) {rows[i].insertCell(j).outerHTML = `<td style="background-color:Red; width:15%;">0</td>`}
+        for (let j=1; j < 6; j++) {rows[i].insertCell(j).outerHTML = `<td style="background-color:Red; width:17%;">0</td>`}
     }
 
 }
@@ -274,13 +283,18 @@ async function t0_ttblOverlay_add(nameIndex) {
         
         let fSpotDesc = await t0_getBusyTimes(nameIndex, day)
         
+        let doneIndexes = []
+
         for (let i=0; i < fSpotDesc.length; i++) {
             
             let sIndx = fSpotDesc[i][1]
             let lenCount = fSpotDesc[i][2]
 
             for (j=sIndx; j < sIndx + lenCount; j++) {
-                rows[j].cells[day].innerHTML = parseInt(rows[j].cells[day].innerHTML) + 1
+                if (doneIndexes.indexOf(j) == -1) {
+                    doneIndexes.push(j)
+                    rows[j].cells[day].innerHTML = parseInt(rows[j].cells[day].innerHTML) + 1
+                }
             }
         }
     }
