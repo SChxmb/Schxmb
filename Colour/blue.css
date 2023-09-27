@@ -1,13 +1,19 @@
-body {
-    background-color: #1D5B79;
-}
-nav table {
-    color: #b7db72;
-    background-color: #468B97;
-}
-nav table tr th:hover {
-    color: #FFF;
-}
-.selected {
-    background-color: #1D5B79;
+:root {
+    --bg1: ;
+    --navBg: ;
+    --navSelTxt: ;
+    --navTxt: ;
+    --navSel: ;
+    --mainTxt: ;
+    --otherTxt: ;
+    --toolBg: ;
+    --toolOutl: ;
+    --toolSelOutl: ;
+    --toolSelBg: ;
+    --rCol0: ;
+    --rCol1: ;
+    --rCol2: ;
+    --rCol3: ;
+    --rCol4: ;
+    --hover: ;
 }

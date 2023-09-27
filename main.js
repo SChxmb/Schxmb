@@ -3,7 +3,7 @@
 
 async function init() {
 
-    colorCheck()
+    colorCheck("spooky")
 
     topBtn(1)
 
@@ -25,8 +25,8 @@ function toolBTN(i) {
     document.getElementById(`t${i}_div`).classList.add("seltool");
 }
 
-function colorCheck() {
-    document.getElementById("colorcss").href = "Colour/dark.css";
+function colorCheck(colour) {
+    document.getElementById("colorcss").href = `Colour/${colour}.css`;
 }
 
 

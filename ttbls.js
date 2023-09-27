@@ -23,7 +23,7 @@ async function t0_init() {
         nameSel.options[nameSel.length] = new Option(CSV[i * 10][0], i * 10)
     }
 
-    document.getElementById("t0_mode").selectedIndex = 2
+    document.getElementById("t0_mode").selectedIndex = 0
     nameSel.selectedIndex = 0
 
     let d = new Date()
