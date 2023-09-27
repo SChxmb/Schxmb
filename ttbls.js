@@ -60,7 +60,7 @@ async function t0_autofill() {
 
         await t0_ttblOverlay_setup()
 
-        for (i=0; i < 5; i++) {await t0_ttblOverlay_add(i)}
+        for (i=0; i < 5; i++) {await t0_ttblOverlay_add(nameIndex=i)}
 
         await t0_ttblOverlay_reCol()
 
@@ -275,7 +275,9 @@ async function t0_ttblOverlay_setup() {
 
 }
 
-async function t0_ttblOverlay_add(nameIndex) {
+async function t0_ttblOverlay_add(nameIndex=null) {
+
+    if (nameIndex==null) {nameIndex=document.getElementById("t0_name").selectedIndex}
 
     let rows = document.getElementById("t0_table").rows
 
