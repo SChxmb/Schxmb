@@ -23,27 +23,29 @@ async function t0_init() {
         nameSel.options[nameSel.length] = new Option(CSV[i * 10][0], i * 10)
     }
 
-    document.getElementById("t0_mode").selectedIndex = 0
+    document.getElementById("t0_mode").selectedIndex = 2
     nameSel.selectedIndex = 0
 
     let d = new Date()
     document.getElementById("t0_day").selectedIndex = d.getDay()//5
 
-    t0_reloadTtbl()
+    t0_reloadTtbl(true, true)
 
 }
 
-async function t0_reloadTtbl() {
+async function t0_reloadTtbl(reinit=true, breal=false) {
+    if (!(document.getElementById("t0_mode").value=="Overlay") || reinit) {
 
-    t0_resetUIOptions();
+        t0_resetUIOptions();
 
-    await t0_reloadBase()
+        await t0_reloadBase()
 
-    await t0_autofill()
-
+        await t0_autofill(breal)
+    
+    }
 }
 
-async function t0_autofill() {
+async function t0_autofill(temp=false) {
 
     let mode = document.getElementById("t0_mode").value
 
@@ -60,7 +62,7 @@ async function t0_autofill() {
 
         await t0_ttblOverlay_setup()
 
-        for (i=0; i < 5; i++) {await t0_ttblOverlay_add(nameIndex=i)}
+        if (temp) {for (i=0; i < 5; i++) {await t0_ttblOverlay_add(i)}}
 
         await t0_ttblOverlay_reCol()
 
@@ -84,11 +86,14 @@ async function t0_reloadBase() {
     
     var table = document.getElementById("t0_table")
 
+    start = 4096
+    end = 0
+
     table.style.width = ""
 
     while (table.rows.length > 0) {table.deleteRow(0);}
 
-    table.insertRow(0).insertCell(0).innerHTML = minSep
+    table.insertRow(0).insertCell(0).outerHTML = `<td style="color:transparent">${minSep}</td>`
     
     var to = "0:00", from = ''
 
@@ -104,6 +109,7 @@ async function t0_reloadBase() {
     }
 
     table.insertRow(-1).insertCell(0).outerHTML = `<td>...</td>`
+    table.rows[table.rows.length-1].insertCell(1).outerHTML= `<td style="display:none;">0</td>`
 
 }
 
@@ -120,8 +126,8 @@ function t0_shrink() {
     var rows = document.getElementById("t0_table").rows
     
     rmvAllClass("t0_hideCell")
-    
-    for (let i = 1; i < rows.length; i++) {
+
+    for (let i = 1; i < rows.length-1; i++) {
         for (let j = 1; j < rows[i].cells.length; j++) {
             if (!(rows[i].cells[j].innerHTML == "" || rows[i].cells[j].innerHTML == "0") && start > i) {start = i}
             if (!(rows[i].cells[j].innerHTML == "" || rows[i].cells[j].innerHTML == "0") && end < i) {end = i}
@@ -129,7 +135,7 @@ function t0_shrink() {
     }
     
     for (let i = 0; i < rows.length; i++) {
-        if ((i+1 < start) || (i-1 > end)) {rows[i].classList.add("t0_hideCell")}
+        if ((i+1 < start) || (i-1 > end) || start == 4096) {rows[i].classList.add("t0_hideCell")}
     }
     
     rows[0].classList.remove("t0_hideCell")
@@ -270,21 +276,23 @@ async function t0_ttblOverlay_setup() {
     for (let j=1; j < 6; j++) {rows[0].insertCell(j).outerHTML = `<td style="z-index:10;">${document.getElementById("t0_day").options[j].text}</td>`}
 
     for (let i=1; i < rows.length - 1; i++) {
-        for (let j=1; j < 6; j++) {rows[i].insertCell(j).outerHTML = `<td style="background-color:Red; width:17%;">0</td>`}
+        for (let j=1; j < 6; j++) {rows[i].insertCell(j).outerHTML = `<td style="background-color:var(--toolSelBg); width:17%;">0</td>`}
     }
 
 }
 
-async function t0_ttblOverlay_add(nameIndex=null) {
+async function t0_ttblOverlay_add(nameIndex=null,manual=false) {
 
     if (nameIndex==null) {nameIndex=document.getElementById("t0_name").selectedIndex}
 
     let rows = document.getElementById("t0_table").rows
 
+    rows[rows.length-1].cells[1].innerHTML = parseInt(rows[rows.length-1].cells[1].innerHTML) + 1
+    
     for (let day = 1; day < 6; day++) {
         
         let fSpotDesc = await t0_getBusyTimes(nameIndex, day)
-        
+
         let doneIndexes = []
 
         for (let i=0; i < fSpotDesc.length; i++) {
@@ -300,6 +308,9 @@ async function t0_ttblOverlay_add(nameIndex=null) {
             }
         }
     }
+
+    if (manual) {t0_ttblOverlay_reCol()}
+
 }
 
 async function t0_ttblOverlay_reCol() {
@@ -310,7 +321,7 @@ async function t0_ttblOverlay_reCol() {
 
     for (let day = 1; day < 6; day++) {
         for (let i = start-1; i <= end + 1; i++) {
-            rows[i].cells[day].style.opacity = parseInt(rows[i].cells[day].innerHTML) / 5
+            rows[i].cells[day].style.opacity = parseInt(rows[i].cells[day].innerHTML) / parseInt(rows[rows.length-1].cells[1].innerHTML)
         }
     }
 }

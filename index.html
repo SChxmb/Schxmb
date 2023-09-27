@@ -59,14 +59,14 @@
                     <form style="float:left;width:100%;">
 
                         <label id="t0_modeLbl" for="t0_mode">Select Mode: </label>
-                        <select id="t0_mode" name="t0_mode" onchange="t0_reloadTtbl();">
-                            <option value="Compare" selected>Compare Day</option>
+                        <select id="t0_mode" name="t0_mode" onchange="t0_reloadTtbl(true, true);">
+                            <option value="Compare">Compare Day</option>
                             <option value="Full">Full Timetable</option>
                             <option value="Overlay">Overlay Mode</option>
                         </select>
 
                         <label id="t0_nameLbl" for="t0_name">Select Name:</label>
-                        <select id="t0_name" name="t0_name" onchange="t0_reloadTtbl();"></select>
+                        <select id="t0_name" name="t0_name" onchange="t0_reloadTtbl(false);"></select>
                         
                         <label id="t0_dayLbl" for="t0_day">Select day: </label>
                         <select id="t0_day" name="t0_day" onchange="t0_reloadTtbl();">
@@ -79,7 +79,7 @@
                             <option value="6">Saturday</option>
                         </select>
                         
-                        <input id="t0_add" type="button" value="Add" onclick="t0_ttblOverlay_add()">
+                        <input id="t0_add" type="button" value="Add" onclick="t0_ttblOverlay_add(null, true)">
                         <input id="t0_reload" type="button" value="Reload" onclick="t0_reloadTtbl();">
 
                     </form>
