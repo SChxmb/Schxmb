@@ -1,23 +1,20 @@
-body {
-    background-color: #222;
-}
-nav table {
-    color: orange;
-    background-color: #333;
-}
-nav table tr th:hover {
-    color: #FFF;
-}
-aside {
-    background-color: #333;
-    color: orange;
-}
-#sidebarsel{
-background-color: #333;
-}
-.selected {
-    background-color: #222;
-}
-article {
-    color: darkgoldenrod;
+:root {
+    --bg1: #1a1a1a;
+    --navBg: #232323;
+    --navSelTxt:coral;
+    --navTxt: orange;
+    --navSel: #1a1a1a;
+    --mainTxt: #ae5fe7;
+    --otherTxt: red;
+    --ttlTxt: coral;
+    --toolBg: #1e1e1e;
+    --toolOutl: #1a1a1a;
+    --toolSelOutl: #12103b;
+    --toolSelBg: #0a0922;
+    --rCol0: #2b2204;
+    --rCol1: #3d3409;
+    --rCol2: #4d3c0f;
+    --rCol3: #463104;
+    --rCol4: #3f3b2e;
+    --hover: #fff;
 }

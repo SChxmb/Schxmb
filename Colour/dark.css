@@ -6,14 +6,15 @@
     --navSel: #252526;
     --mainTxt: #4cbbe0;
     --otherTxt: #14f795;
+    --ttlTxt: #CFE0AD;
     --toolBg: #1e1e1e;
     --toolOutl: #1a1a1a;
     --toolSelOutl: #12103b;
     --toolSelBg: #0a0922;
-    --rCol0: #132C19;
+    --rCol0: #1d3d25;
     --rCol1: #154B41;
     --rCol2: #31522D;
-    --rCol3: green;
+    --rCol3: #0e3d0e;
     --rCol4: #3F5A44;
     --hover: #fff;
 }

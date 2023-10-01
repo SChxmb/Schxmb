@@ -16,11 +16,19 @@ nav th.seltab {
     background-color: var(--navSel);
 }
 main * {
-    color: var(--mainTxt)
+    color: var(--mainTxt);
 }
+h1, h2, h3 {
+    color: var(--ttlTxt);
+}
+
 #toolBtns li {
+    color: var(--otherTxt);
     outline-color: var(--toolOutl);
     background-color: var(--toolBg);
+}
+#toolBtns li b {
+    color: var(--ttlTxt);
 }
 #toolBtns li.seltool{
     outline-color: var(--toolSelOutl);
@@ -28,6 +36,12 @@ main * {
 }
 #t0_table tr td {
     border-color: var(--toolOutl) !important;
+}
+#t0_div form label {
+    color: var(--navTxt);
+}
+#t0_div form :not(label) {
+    background-color: var(--toolSelBg);
 }
 .rCol0 {
     background-color: var(--rCol0);
@@ -45,6 +59,6 @@ main * {
     background-color: var(--rCol4);
 }
 #t0_table tr td:first-child, #t0_table tr:first-child td {
-    color: var(--otherTxt);
+    color: var(--ttlTxt);
     background-color: var(--toolBg);
 }

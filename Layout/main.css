@@ -87,6 +87,7 @@ main div.seltab {
 
 .t0_selTime td {
     background-color: #6bb4c7;
+    opacity: 1 !important;
 }
 
 .t0_selTime td:first-child, .t0_selTime td:not(:empty) {
