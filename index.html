@@ -12,28 +12,28 @@
     <body onload="init();" style="margin: 0px; padding: 0px;">
 
         <div id="bg_cont"> <!-- Background -->
-            <div class="bg_sqr" style="z-index: -1; background-color: var(--bg1); top: -1vh;"></div>
-            <div class="bg_tri" style="z-index: -1; border-top-color: var(--bg1); top: 77vh;"></div>
-            <div class="bg_tri" style="z-index: -2; border-top-color: var(--bg2); top: 82vh;"></div>
-            <div class="bg_tri" style="z-index: -3; border-top-color: var(--bg1); top: 84vh;"></div>
-            <div class="bg_clb" style="top:84vh;" onclick="scrollBox(1);"></div>
+            <div class="bg_sqr" style="z-index: -1; background-color: var(--bg1); top: calc(var(--mh) * -0.01);"></div>
+            <div class="bg_tri" style="z-index: -1; border-top-color: var(--bg1); top: calc(var(--mh) * 0.77);"></div>
+            <div class="bg_tri" style="z-index: -2; border-top-color: var(--bg2); top: calc(var(--mh) * 0.82);"></div>
+            <div class="bg_tri" style="z-index: -3; border-top-color: var(--bg1); top: calc(var(--mh) * 0.84);"></div>
+            <div class="bg_clb" style="top:calc(var(--mh) * 0.84);" onclick="scrollBox(1);"></div>
 
-            <div class="bg_sqr" style="z-index: -4; background-color: var(--bg2); top: 84vh;"></div>
-            <div class="bg_tri" style="z-index: -4; border-top-color: var(--bg2); top: 162vh;"></div>
-            <div class="bg_tri" style="z-index: -5; border-top-color: var(--bg3); top: 167vh;"></div>
-            <div class="bg_tri" style="z-index: -6; border-top-color: var(--bg2); top: 169vh;"></div>
-            <div class="bg_clb" style="top:169vh;" onclick="scrollBox(2);"></div>
+            <div class="bg_sqr" style="z-index: -4; background-color: var(--bg2); top: calc(var(--mh) * 0.84);"></div>
+            <div class="bg_tri" style="z-index: -4; border-top-color: var(--bg2); top: calc(var(--mh) * 1.62);"></div>
+            <div class="bg_tri" style="z-index: -5; border-top-color: var(--bg3); top: calc(var(--mh) * 1.67);"></div>
+            <div class="bg_tri" style="z-index: -6; border-top-color: var(--bg2); top: calc(var(--mh) * 1.69);"></div>
+            <div class="bg_clb" style="top:calc(var(--mh) * 1.69);" onclick="scrollBox(2);"></div>
             
-            <div class="bg_sqr" style="z-index: -7; background-color: var(--bg3); top: 169vh;"></div>
-            <div class="bg_tri" style="z-index: -7; border-top-color: var(--bg3); top: 247vh;"></div>
-            <div class="bg_tri" style="z-index: -8; border-top-color: var(--bg4); top: 252vh;"></div>
-            <div class="bg_tri" style="z-index: -9; border-top-color: var(--bg3); top: 254vh;"></div>
-            <div class="bg_clb" style="top:254vh;" onclick="scrollBox(3);"></div>
+            <div class="bg_sqr" style="z-index: -7; background-color: var(--bg3); top: calc(var(--mh) * 1.69);"></div>
+            <div class="bg_tri" style="z-index: -7; border-top-color: var(--bg3); top: calc(var(--mh) * 2.47);"></div>
+            <div class="bg_tri" style="z-index: -8; border-top-color: var(--bg4); top: calc(var(--mh) * 2.52);"></div>
+            <div class="bg_tri" style="z-index: -9; border-top-color: var(--bg3); top: calc(var(--mh) * 2.54);"></div>
+            <div class="bg_clb" style="top:calc(var(--mh) * 2.54);" onclick="scrollBox(3);"></div>
 
-            <div class="bg_sqr" id="bg_last" style="z-index: -10; background-color: var(--bg4); top: 254vh;"></div>
+            <div class="bg_sqr" id="bg_last" style="z-index: -10; background-color: var(--bg4); top: calc(var(--mh) * 2.54);"></div>
         </div>
 
-        <div class="fg_sect" style="height: 85vh !important;">
+        <div class="fg_sect" style="height: calc(var(--mh) * 0.85) !important;">
         
             <h1 style="color: var(--ttl1);" onclick="swapTheme();" id="t1">
                 7x3.dev
@@ -43,12 +43,12 @@
                 A website dedicated to little side projects.<br><br>
                 The code is likely poor and possibly dysfunctional.<br>
                 Last update was 01/02/24<br><br>
-                Word of the update is Defenestration
+                Word of the update is smore
             </p>
         
         </div>
 
-        <div class="fg_sect" style="margin-top: 14vh;">
+        <div class="fg_sect" style="margin-top: calc(var(--mh) * 0.14);">
         
             <h2 style="color: var(--ttl1); margin: 0;"> 
                 <a style="color: var(--ttl1)" href="/Tools/ttbl.html">Timetable Tool </a>

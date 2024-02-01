@@ -1,5 +1,6 @@
 function init() {
     document.getElementsByTagName("body").item(0).style.overflowY = "hidden"
+    document.querySelector(':root').style.setProperty('--mh', String(window.innerHeight) + "px")
 }
 
 function scrollBox(i) {

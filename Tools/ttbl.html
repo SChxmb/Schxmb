@@ -13,19 +13,19 @@
 
 <body onload="init(); initOptions();">
     
-    <div id="test" style="display: none !important; position: fixed; color: black; background-color: red; z-index: 10; height: 200px; width: 400px; display: block;" onclick="test();"></div>
+    <div id="test" style="display: inline-block !important; position: fixed; color: black; background-color: red; z-index: 10; height: 200px; width: 400px; display: block;" onclick="test();"></div>
     
     <div id="bg_cont"> <!-- Background -->
-        <div class="bg_sqr" style="z-index: -1; background-color: var(--bg1); top: -1vh;"></div>
-        <div class="bg_tri" style="z-index: -1; border-top-color: var(--bg1); top: 77vh;"></div>
-        <div class="bg_tri" style="z-index: -2; border-top-color: var(--bg2); top: 82vh;"></div>
-        <div class="bg_tri" style="z-index: -3; border-top-color: var(--bg1); top: 84vh;"></div>
-        <div class="bg_clb" style="top:84vh;" onclick="scrollBox(1); pressBtn();"></div>
+        <div class="bg_sqr" style="z-index: -1; background-color: var(--bg1); top: calc(var(--mh) * -0.01);"></div>
+        <div class="bg_tri" style="z-index: -1; border-top-color: var(--bg1); top: calc(var(--mh) * 0.77);"></div>
+        <div class="bg_tri" style="z-index: -2; border-top-color: var(--bg2); top: calc(var(--mh) * 0.82);"></div>
+        <div class="bg_tri" style="z-index: -3; border-top-color: var(--bg1); top: calc(var(--mh) * 0.84);"></div>
+        <div class="bg_clb" style="top: calc(var(--mh) * 0.84);" onclick="scrollBox(1); pressBtn();"></div>
 
-        <div class="bg_sqr" id="bg_last" style="z-index: -4; background-color: var(--bg2); top: 84vh;"></div>
+        <div class="bg_sqr" id="bg_last" style="z-index: -4; background-color: var(--bg2); top: calc(var(--mh) * 0.84);"></div>
     </div>
 
-    <div class="fg_sect" style="height: 62vh;">
+    <div class="fg_sect" style="height: calc(var(--mh) * 0.62);">
         <h1 onclick="swapTheme();">
             7x3.dev
         </h1>
@@ -65,7 +65,7 @@
         </select>
     </div>
 
-    <div class="fg_sect" style="margin-top: 38vh; height: 84vh;">
+    <div class="fg_sect" style="margin-top: calc(var(--mh) * 0.38); height: calc(var(--mh) * 0.84);">
         <table id="outTable">
             <tr style="height: 2em;">
                 <th>hi</th>

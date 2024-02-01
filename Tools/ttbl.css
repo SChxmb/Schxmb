@@ -14,8 +14,8 @@ p, label {
 #optionBox {
     z-index: 2;
     position: absolute;
-    height: 21vh;
-    top: 63vh;
+    height: calc(var(--mh) * 0.21);
+    top: calc(var(--mh) * 0.63);
     margin-left: auto;
     margin-right: auto;
     left: 0;
