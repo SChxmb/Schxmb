@@ -76,5 +76,9 @@ h1, h2 {
 p, label {
     font-family: "Yu Gothic Ui light";
     font-weight: normal;
-    font-size: 2em;
+    font-size: min(2em, 8vw);
+}
+
+@media screen and (max-width: 450px) {
+    .waffle {display: none;}
 }

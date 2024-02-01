@@ -195,6 +195,7 @@ function rmvAllClass(str) {
 }
 
 function test() {
+    ret(window.innerWidth)
 }
 
 function ret(s) {
