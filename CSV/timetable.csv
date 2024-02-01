@@ -1,0 +1,64 @@
+Format,Absolute
+
+Me
+sunday
+monday,Physics,11:30,12:45,Maths,13:30,14:45,Computer Science,14:45,16:00
+tuesday,Physics,13:30,14:45,Maths,14:45,16:00
+wednesday,Computer Science,8:45,10:00,Physics,13:30,16:00
+thursday,Computer Science,8:45,11:30,Maths,11:30,12:45
+friday,PM,8:45,10:00,Maths,10:00,11:15
+saturday
+
+Ryan
+sunday
+monday,IT,10:15,11:30,IT,13:30,14:45,Computer Science,14:45,16:00
+tuesday,IT,12:15,13:30,IT,14:45,16:00
+wednesday,Computer Science,8:45,10:00,IT,10:15,11:30
+thursday,Computer Science,8:45,11:30,IT,12:15,13:30
+friday,IT,8:45,11:30
+saturday
+
+Troy
+sunday
+monday,Film,8:45,11:10,Computer Science, 14:45, 16:00
+tuesday,Film,8:45,11:10
+wednesday,Computer Science,8:45,10:00,Film,10:00, 11:10
+thursday,Computer Science,8:45,11:30,Film,13:30,16:00
+friday,Form,8:45,10:00,Film,14:45,16:00
+saturday
+
+Harry
+sunday
+monday,Computer Science,8:45,11:30,Ancient History,14:45,16:00
+tuesday,History,10:15,11:30,Computer Science,12:15,13:30
+wednesday,Ancient History,8:45,10:00,Computer Science,10:15,11:30,History,12:15,13:30
+thursday,Ancent History,10:15,11:30,History,13:30,14:45
+friday,Ancient History,13:30,14:45,History,14:45,16:00
+saturday
+
+Kyle
+sunday
+monday,IT,10:15,11:30,IT,13:30,14:45,Computer Science,14:45,16:00
+tuesday,IT,12:15,13:30,IT,14:45,16:00
+wednesday,Computer Science,8:45,10:00,IT,10:15,11:30
+thursday,Computer Science,8:45,11:30,IT,12:15,13:30
+friday,IT,8:45,11:30
+saturday
+
+Jed
+sunday
+monday,UPS,8:45,11:30
+tuesday,PM,10:15,11:30,UPS,13:30,16:00
+wednesday,Elevate,8:45,10:00,UPS,10:00,11:15,UPS,13:30,16:00
+thursday,UPS,11:30,12:45,UPS,14:45,16:00
+friday,UPS,8:45,12:45
+saturday
+
+Amina
+sunday
+monday,Form,8:45,8:55,Maths,9:00,10:40,English,10:50,12:30,Study,13:15,14:55,Gym,18:00,20:00
+tuesday,Form,8:45,8:55,Art,9:00,10:40,Graphics,10:50,12:30,French,13:15,14:55,PSHE,14:55,15:45
+wednesday,Form,8:45,8:55,PE,9:00,9:50,English,9:50,10:40,Graphics,10:50,12:30,Study,13:15,14:55,Gym,18:00,20:00
+thursday,Form,8:45,8:55,Art,9:00,10:40,Maths,10:50,12:30,French,13:15,14:55,Study,14:55,15:45
+friday,Form,8:45,8:55,English,9:00,10:40,French,10:50,11:40,Graphics,11:40,12:30,Maths,13:15,14:05,Art,14:15,14:55,Gym,18:00,20:00
+saturday

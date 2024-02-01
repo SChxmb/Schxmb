@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Timetable Viewer</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="/CSS/light.css" id="theme">
+    <link rel="stylesheet" href="ttbl.css">
+    <link rel="stylesheet" href="/CSS/main.css">
+    <script src="/JS/main.js"></script>
+    <script src="/JS/ttbl.js"></script>
+</head>
+
+<body onload="init(); initOptions();">
+    
+    <div id="test" style="display: none !important; position: fixed; color: black; background-color: red; z-index: 10; height: 200px; width: 400px; display: block;" onclick="test();"></div>
+    
+    <div id="bg_cont"> <!-- Background -->
+        <div class="bg_sqr" style="z-index: -1; background-color: var(--bg1); top: -1vh;"></div>
+        <div class="bg_tri" style="z-index: -1; border-top-color: var(--bg1); top: 77vh;"></div>
+        <div class="bg_tri" style="z-index: -2; border-top-color: var(--bg2); top: 82vh;"></div>
+        <div class="bg_tri" style="z-index: -3; border-top-color: var(--bg1); top: 84vh;"></div>
+        <div class="bg_clb" style="top:84vh;" onclick="scrollBox(1); pressBtn();"></div>
+
+        <div class="bg_sqr" id="bg_last" style="z-index: -4; background-color: var(--bg2); top: 84vh;"></div>
+    </div>
+
+    <div class="fg_sect" style="height: 62vh;">
+        <h1 onclick="swapTheme();">
+            7x3.dev
+        </h1>
+
+        <p style="margin: 0, 25vw;">
+            This website requires javascript to work properly.<br>
+            If you don't have it enabled (Troy), too bad.<br><br>
+            One day you will be able to insert your own 
+            CSV by dragging & dropping.<br>
+        </p>
+    </div>
+
+    <div id="optionBox">
+        <table>
+            <tr>
+                <th>
+                    <label for="name1">Person A<br></label>
+                    <select id="name1" name="name1" onchange=""></select>
+                </th>
+                
+                <th>
+                    <label for="name2">Person B<br></label>
+                    <select id="name2" name="name2" onchange=""></select>
+                </th>
+            </tr>
+        </table>
+
+        <label for="day">Select day :<br></label>
+        <select id="day" name="day" onchange="">
+            <option value="0">sunday</option>
+            <option value="1">monday</option>
+            <option value="2">tuesday</option>
+            <option value="3">wednesday</option>
+            <option value="4">thursday</option>
+            <option value="5">friday</option>
+            <option value="6">saturday</option>
+        </select>
+    </div>
+
+    <div class="fg_sect" style="margin-top: 38vh; height: 84vh;">
+        <table id="outTable">
+            <tr style="height: 2em;">
+                <th>hi</th>
+            </tr>
+        </table>
+    </div>
+
+</body>

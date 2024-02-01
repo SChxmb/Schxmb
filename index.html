@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Renten Website</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <link rel="stylesheet" href="/CSS/main.css">
+        <link rel="stylesheet" href="/CSS/light.css" id="theme">
+        <script src="/JS/main.js"></script>
+    </head>
+
+    <body onload="init();" style="margin: 0px; padding: 0px;">
+
+        <div id="bg_cont"> <!-- Background -->
+            <div class="bg_sqr" style="z-index: -1; background-color: var(--bg1); top: -1vh;"></div>
+            <div class="bg_tri" style="z-index: -1; border-top-color: var(--bg1); top: 77vh;"></div>
+            <div class="bg_tri" style="z-index: -2; border-top-color: var(--bg2); top: 82vh;"></div>
+            <div class="bg_tri" style="z-index: -3; border-top-color: var(--bg1); top: 84vh;"></div>
+            <div class="bg_clb" style="top:84vh;" onclick="scrollBox(1);"></div>
+
+            <div class="bg_sqr" style="z-index: -4; background-color: var(--bg2); top: 84vh;"></div>
+            <div class="bg_tri" style="z-index: -4; border-top-color: var(--bg2); top: 162vh;"></div>
+            <div class="bg_tri" style="z-index: -5; border-top-color: var(--bg3); top: 167vh;"></div>
+            <div class="bg_tri" style="z-index: -6; border-top-color: var(--bg2); top: 169vh;"></div>
+            <div class="bg_clb" style="top:169vh;" onclick="scrollBox(2);"></div>
+            
+            <div class="bg_sqr" style="z-index: -7; background-color: var(--bg3); top: 169vh;"></div>
+            <div class="bg_tri" style="z-index: -7; border-top-color: var(--bg3); top: 247vh;"></div>
+            <div class="bg_tri" style="z-index: -8; border-top-color: var(--bg4); top: 252vh;"></div>
+            <div class="bg_tri" style="z-index: -9; border-top-color: var(--bg3); top: 254vh;"></div>
+            <div class="bg_clb" style="top:254vh;" onclick="scrollBox(3);"></div>
+
+            <div class="bg_sqr" id="bg_last" style="z-index: -10; background-color: var(--bg4); top: 254vh;"></div>
+        </div>
+
+        <div class="fg_sect" style="height: 85vh !important;">
+        
+            <h1 style="color: var(--ttl1);" onclick="swapTheme();" id="t1">
+                7x3.dev
+            </h1>
+            
+            <p style="color: var(--txt1);">
+                A website dedicated to little side projects.<br><br>
+                The code is likely poor and possibly dysfunctional.<br>
+                Last update was 01/02/24<br><br>
+                Word of the update is Defenestration
+            </p>
+        
+        </div>
+
+        <div class="fg_sect" style="margin-top: 14vh;">
+        
+            <h2 style="color: var(--ttl1); margin: 0;"> 
+                <a style="color: var(--ttl1)" href="/Tools/ttbl.html">Timetable Tool </a>
+            </h2>
+
+            <p style="color: var(--txt1);">
+                Can be used to coordinate plans or see availability.<br><br>
+                First tool I wrote in JS, and coded as atrociously as you 
+                would expect from a beginner that knew only python & scratch.<br><br>
+                <S>The code is far beyond repair and making any change seems to
+                throw 4x more errors than I can count using two hands.</S> RECODED AND
+                BETTER ISH NOW!!!!!!
+            </p>
+        
+        </div>
+
+    </body>
+</html>
