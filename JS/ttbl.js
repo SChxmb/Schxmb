@@ -67,7 +67,7 @@ function loadTableBase(mode) {
             
             from = to
             to = `${(Math.floor(minPast/60)).toString()}:${(minPast%60).toString().padStart(2, "0")}`
-            t.insertRow(-1).outerHTML = `<tr id=${"R" + toString(i)}><th>${from} - ${to}</th></tr>`
+            t.insertRow(-1).outerHTML = `<tr><th style="border-top-width:0;border-bottom-width:0;">${from} - ${to}</th></tr>`
         
         }
 
@@ -97,15 +97,17 @@ function addPerson(pIndex) {
 
     for (let lesson of lessons) {
     
-        t.rows[(lesson.start/minSep) + 1].cells[column].outerHTML = `<td>${lesson.subject}</td>`
-
+        t.rows[(lesson.start/minSep) + 1].cells[column].outerHTML = `<td style="border-top-width:2px;">${lesson.subject}</td>`
+        
         if (((lesson.end - lesson.start)/minSep) >= 2) {
             if (String(t.rows[(lesson.start/minSep) + 2].cells[column].innerHTML).replace("^", "").trim() == "") {
-                t.rows[(lesson.start/minSep) + 2].cells[column].outerHTML = `<td>${lesson.start}</td>`
+                t.rows[(lesson.start/minSep) + 2].cells[column].outerHTML = `<td style="border-top-width : 0;">${lesson.start}</td>`
+                t.rows[(lesson.start/minSep) + 1].cells[column].style.borderBottomWidth = 0
             }
-
+            
             for (i=2; i < (lesson.end - lesson.start)/minSep; i++) {
                 t.rows[(lesson.start/minSep) + i + 1].cells[column].outerHTML = `<td>^</td>`
+                t.rows[(lesson.start/minSep) + i].cells[column].style.borderBottomWidth = '0'
             }
         
         }
@@ -195,9 +197,9 @@ function rmvAllClass(str) {
 }
 
 function test() {
-    ret(window.innerWidth)
+    pressBtn()
 }
 
-function ret(s) {
+function ret(s = "hi") {
     document.getElementById("test").innerHTML += String(s) + ";<br>"
 }

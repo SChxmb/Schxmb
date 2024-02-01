@@ -5,6 +5,9 @@
     --bg4: #00ffdd;
     --ttl1: #fbc193;
     --txt1: #fbc193;
-    --sel1: #1c4d4e;
-    --seltxt1: #cfc145;
+    --sel1: #009480;
+    --seltxt1: black;
+    --altFG: #fbc193;
+    --altBG1: #006E60;
+    --altBG2: #297c75;
 }
