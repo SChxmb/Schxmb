@@ -101,7 +101,9 @@ function addPerson(pIndex) {
         
         if (((lesson.end - lesson.start)/minSep) >= 2) {
             if (String(t.rows[(lesson.start/minSep) + 2].cells[column].innerHTML).replace("^", "").trim() == "") {
-                t.rows[(lesson.start/minSep) + 2].cells[column].outerHTML = `<td style="border-top-width : 0;">${lesson.start}</td>`
+                let from = Math.floor(lesson.start/60) + ":" + lesson.start%60
+                let to = Math.floor(lesson.end/60) + ":" + lesson.end%60
+                t.rows[(lesson.start/minSep) + 2].cells[column].outerHTML = `<td style="border-top-width : 0;">${from + " - " + to}</td>`
                 t.rows[(lesson.start/minSep) + 1].cells[column].style.borderBottomWidth = 0
             }
             
