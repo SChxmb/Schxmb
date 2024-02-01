@@ -6,6 +6,11 @@
     text-align: center;
 }
 
+html {
+    min-height: 100vh;
+    background-color: var(--bg1);
+}
+
 body, body div {
     width: 100vw;
     margin: 0;
@@ -44,7 +49,7 @@ body, body div {
 }
 
 .fg_sect {
-    height: calc(var(--mh) * 0.7);
+    height: calc(var(--mh) * 0.69);
     left: 0;
     right: 0;
     margin-left: auto;
