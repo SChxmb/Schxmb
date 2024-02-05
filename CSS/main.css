@@ -15,7 +15,7 @@ body, body div {
     width: 100vw;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
 }
 
 .bg_sqr {
@@ -56,13 +56,13 @@ body, body div {
     margin-right: auto;
     width: min(100vw, 40em);
     overflow-y:scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    /*-ms-overflow-style: none;
+    scrollbar-width: none;*/
 }
 
-.fg_sect::-webkit-scrollbar, .hide {
+/*.fg_sect::-webkit-scrollbar, .hide {
     display: none;
-}
+}*/
 
 #bg_last {
     height: calc(var(--mh) * 1.01);

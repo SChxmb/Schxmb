@@ -33,7 +33,6 @@ class lesson {
 }
 
 async function initOptions() {
-
     let nameSel1 = document.getElementById("name1")
     let nameSel2 = document.getElementById("name2")
     while (nameSel1.options.length > 0) {nameSel1.remove(0); nameSel2.remove(0)}
@@ -50,6 +49,9 @@ async function initOptions() {
     }
 
     nameSel2.selectedIndex = 2
+
+    //document.getElementById("day").selectedIndex = 3
+    //test()
 
 }
 
@@ -101,8 +103,8 @@ function addPerson(pIndex) {
         
         if (((lesson.end - lesson.start)/minSep) >= 2) {
             if (String(t.rows[(lesson.start/minSep) + 2].cells[column].innerHTML).replace("^", "").trim() == "") {
-                let from = Math.floor(lesson.start/60) + ":" + lesson.start%60
-                let to = Math.floor(lesson.end/60) + ":" + lesson.end%60
+                let from = (String(Math.floor(lesson.start/60))).padStart(2, "0") + ":" + (String(lesson.start%60)).padStart(2, "0")
+                let to = (String(Math.floor(lesson.end/60))).padStart(2, "0") + ":" + (String(lesson.end%60)).padStart(2, "0")
                 t.rows[(lesson.start/minSep) + 2].cells[column].outerHTML = `<td style="border-top-width : 0;">${from + " - " + to}</td>`
                 t.rows[(lesson.start/minSep) + 1].cells[column].style.borderBottomWidth = 0
             }
@@ -200,6 +202,9 @@ function rmvAllClass(str) {
 
 function test() {
     pressBtn()
+    addPerson(1)
+    addPerson(3)
+    addPerson(4)
 }
 
 function ret(s = "hi") {

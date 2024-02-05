@@ -42,10 +42,7 @@ select, option {
 
 #outTable {
     border-collapse: collapse;
-}
-
-#outTable tr {
-    width: min(100vw, 40em);
+    overflow-x: scroll !important;
 }
 
 #outTable tr:first-child {
@@ -58,7 +55,7 @@ select, option {
     font-family: "Yu Gothic Ui light";
     font-weight: normal;
     font-size: 2em;
-    width: min(33.33vw, 13.33em);
+    width: min(33.33vw, 6.66em);
     color: var(--altFG);
     background-color: var(--altBG1);
     border: 4px solid black;
