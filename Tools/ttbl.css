@@ -1,3 +1,8 @@
+:root {
+    --tc : 1;
+}
+
+
 h1, h2 {
     margin: 2.5vw;
     color: var(--ttl1);
@@ -28,7 +33,7 @@ p, label {
     width: min(50vw, 20em);
 }
 
-#optionBox table tr:first-child th:first-child {
+#optionBox table tr th:first-child {
     border-right: 4px double var(--bg2);
 }
 
@@ -42,7 +47,7 @@ select, option {
 
 #outTable {
     border-collapse: collapse;
-    overflow-x: scroll !important;
+    width: calc( var(--tc)*min(33.33vw, 13em));
 }
 
 #outTable tr:first-child {
@@ -54,7 +59,7 @@ select, option {
 #outTable tr th {
     font-family: "Yu Gothic Ui light";
     font-weight: normal;
-    font-size: 2em;
+    font-size: min(2em, 5vw);
     width: min(33.33vw, 6.66em);
     color: var(--altFG);
     background-color: var(--altBG1);

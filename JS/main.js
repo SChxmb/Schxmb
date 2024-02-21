@@ -1,5 +1,5 @@
 function init() {
-    document.getElementsByTagName("body").item(0).style.overflowY = "hidden"
+    document.getElementsByTagName("body").item(0).style.overflow = "hidden" //Y
     document.querySelector(':root').style.setProperty('--mh', String(window.innerHeight) + "px")
 }
 

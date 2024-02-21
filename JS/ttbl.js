@@ -140,8 +140,9 @@ function addPerson(pIndex, day) {
 function reZero() {
 
     rmvAllClass("hide")
-
+    
     let t = document.getElementById("outTable")
+    document.querySelector(':root').style.setProperty('--tc', t.rows[0].cells.length)
     columns = t.rows[0].cells.length
     var start = 1440, end = 0
     
@@ -212,11 +213,14 @@ function classifyCSV(csvList) {
 function rmvAllClass(str) {
     let sel = document.getElementsByClassName(str)
     for (let i=sel.length-1;i >= 0; i--) {
-        sel[i].classList.remove(str);}
+        sel[i].classList.remove(str);
+    }
 }
 
 function test() {
-    pressBtn()
+    //pressBtn()
+    let t = document.getElementById("outTable")
+    ret(window.getComputedStyle(t).getPropertyValue('width'))
 }
 
 function ret(s = "hi") {
