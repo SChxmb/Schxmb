@@ -51,7 +51,8 @@ async function initOptions() {
     nameSel2.selectedIndex = 2
 
     //document.getElementById("day").selectedIndex = 3
-    //test()
+
+    pressBtn()
 
 }
 

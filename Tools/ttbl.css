@@ -47,7 +47,7 @@ select, option {
 
 #outTable {
     border-collapse: collapse;
-    width: calc( var(--tc)*min(33.33vw, 13em));
+    width: calc( var(--tc) * min(33.33vw, 13em) );
 }
 
 #outTable tr:first-child {
@@ -59,8 +59,8 @@ select, option {
 #outTable tr th {
     font-family: "Yu Gothic Ui light";
     font-weight: normal;
+    width: min(33.33vw, 13em);
     font-size: min(2em, 5vw);
-    width: min(33.33vw, 6.66em);
     color: var(--altFG);
     background-color: var(--altBG1);
     border: 4px solid black;
