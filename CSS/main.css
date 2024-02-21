@@ -56,13 +56,13 @@ body, body div {
     margin-right: auto;
     width: min(100vw, 40em);
     overflow-y:scroll;
-    /*-ms-overflow-style: none;
-    scrollbar-width: none;*/
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-/*.fg_sect::-webkit-scrollbar, .hide {
+.fg_sect::-webkit-scrollbar, .hide {
     display: none;
-}*/
+}
 
 #bg_last {
     height: calc(var(--mh) * 1.01);

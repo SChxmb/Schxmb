@@ -80,19 +80,34 @@ function loadTableBase(mode) {
 
 function pressBtn() {
     loadTableBase("a")
-    addPerson(document.getElementById("name1").selectedIndex)
-    addPerson(document.getElementById("name2").selectedIndex)
+    let mode = document.getElementById("mode").selectedIndex
+    if (mode == 0) {
+        addPerson(document.getElementById("name1").selectedIndex, "monday")
+        addPerson(document.getElementById("name1").selectedIndex, "tuesday")
+        addPerson(document.getElementById("name1").selectedIndex, "wednesday")
+        addPerson(document.getElementById("name1").selectedIndex, "thursday")
+        addPerson(document.getElementById("name1").selectedIndex, "friday")
+    } else if (mode == 2) {
+        for (let i=0; i < document.getElementById("name1").length; i++) {
+            addPerson(i)
+        } 
+    }
 }
 
-function addPerson(pIndex) {
-
-    let day = document.getElementById("day").options[document.getElementById("day").selectedIndex].text
+function addPerson(pIndex, day) {
+    
     let t = document.getElementById("outTable")
     let column = t.rows[0].cells.length
+
+    if (day == null) {
+        var day = document.getElementById("day").options[document.getElementById("day").selectedIndex].text
+        t.rows[0].insertCell(column).outerHTML = `<th>${people[pIndex].name}</th>`
+    } else {
+        t.rows[0].insertCell(column).outerHTML = `<th>${day}</th>`
+    }
+
     let lessons = people[pIndex][day]
 
-    t.rows[0].insertCell(column).outerHTML = `<th>${people[pIndex].name}</th>`
-    
     for (let i=1; i <= (1440/minSep); i++) {
         t.rows[i].insertCell(column)
     }
@@ -138,7 +153,7 @@ function reZero() {
             }
         }
     }
-
+    
     for (i = 0; i < (1440/minSep); i++) {
         if ((i < start - 1) || (end + 1 < i)) {
             t.rows[i+1].classList.add("hide")
@@ -202,9 +217,6 @@ function rmvAllClass(str) {
 
 function test() {
     pressBtn()
-    addPerson(1)
-    addPerson(3)
-    addPerson(4)
 }
 
 function ret(s = "hi") {

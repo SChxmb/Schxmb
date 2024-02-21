@@ -13,7 +13,7 @@
 
 <body onload="init(); initOptions();">
     
-    <div id="test" style="display: block !important; position: fixed; color: black; background-color: red; z-index: 10; height: 200px; width: 400px; display: block;" onclick="test();"></div>
+    <div id="test" style="display: none !important; position: fixed; color: black; background-color: red; z-index: 10; height: 200px; width: 400px; display: block;" onclick="test();"></div>
     
     <div id="bg_cont"> <!-- Background -->
         <div class="bg_sqr" style="z-index: -1; background-color: var(--bg1); top: calc(var(--mh) * -0.01);"></div>
@@ -51,21 +51,34 @@
                     <select id="name2" name="name2" onchange=""></select>
                 </th>
             </tr>
+            <tr>
+                <th>
+                    <label for="day">Select day :<br></label>
+                    <select id="day" name="day" onchange="">
+                        <option value="0">sunday</option>
+                        <option value="1">monday</option>
+                        <option value="2">tuesday</option>
+                        <option value="3">wednesday</option>
+                        <option value="4">thursday</option>
+                        <option value="5">friday</option>
+                        <option value="6">saturday</option>
+                    </select>
+                </th>
+
+                <th>
+                    <label for="mode">Select Mode :<br></label>
+                    <select id="mode" name="mode" onchange="">
+                        <option value="0">Full TTBL of A</option>
+                        <option value="1">Compare A & B</option>
+                        <option value="2">Show Free Periods</option>
+                    </select>
+                </th>
+            </tr>
         </table>
 
-        <label for="day">Select day :<br></label>
-        <select id="day" name="day" onchange="">
-            <option value="0">sunday</option>
-            <option value="1">monday</option>
-            <option value="2">tuesday</option>
-            <option value="3">wednesday</option>
-            <option value="4">thursday</option>
-            <option value="5">friday</option>
-            <option value="6">saturday</option>
-        </select>
     </div>
 
-    <div class="fg_sect" style="margin-top: calc(var(--mh) * 0.39); height: calc(var(--mh) * 0.83); width: max-content;">
+    <div class="fg_sect hideSB" style="margin-top: calc(var(--mh) * 0.39); height: calc(var(--mh) * 0.83); width: max-content;">
         <table id="outTable" style="max-width: 1000em;">
             <tr style="height: 2em;">
                 <th>hi</th>
