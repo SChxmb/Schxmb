@@ -70,7 +70,7 @@ function loadTableBase(mode) {
             
             from = to
             to = `${(Math.floor(minPast/60)).toString()}:${(minPast%60).toString().padStart(2, "0")}`
-            t.insertRow(-1).outerHTML = `<tr><th style="border-top-width:0;border-bottom-width:0;">${from} - ${to}</th></tr>`
+            t.insertRow(-1).outerHTML = `<tr><th style="border-top-width:0;border-bottom-width:0;">${from}<span style="overflow:hidden;"> - ${to}</span></th></tr>`
         
         }
 

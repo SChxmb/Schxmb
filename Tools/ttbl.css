@@ -60,6 +60,9 @@ select, option {
     font-family: "Yu Gothic Ui light";
     font-weight: normal;
     width: min(33.33vw, 13em);
+    height: 1.25em;
+    overflow: hidden;
+    white-space: nowrap;
     font-size: min(2em, 5vw);
     color: var(--altFG);
     background-color: var(--altBG1);
@@ -70,6 +73,8 @@ select, option {
     border: 2px solid black;
     border-top-width: 0;
     background-color: var(--altBG2);
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 #outTable.absoluteMode tr:not(:first-child) {
