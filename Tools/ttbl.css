@@ -31,6 +31,8 @@ p, label {
 
 #optionBox table tr th {
     width: min(50vw, 20em);
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 #optionBox table tr th:first-child {
