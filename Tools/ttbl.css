@@ -1,8 +1,3 @@
-:root {
-    --tc : 1;
-}
-
-
 h1, h2 {
     margin: 2.5vw;
     color: var(--ttl1);
@@ -49,7 +44,7 @@ select, option {
 
 #outTable {
     border-collapse: collapse;
-    width: calc( var(--tc) * min(33.33vw, 13em) );
+    width: max-content;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -65,8 +60,8 @@ select, option {
 #outTable tr th {
     font-family: "Yu Gothic Ui light";
     font-weight: normal;
-    width: min(33.33vw, 13em);
-    height: 1.25em;
+    width: min(33.33vw, 6.66em);
+    height: 20px;
     overflow: hidden;
     white-space: nowrap;
     font-size: min(2em, 5vw);

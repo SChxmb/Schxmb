@@ -143,7 +143,7 @@ function reZero() {
     rmvAllClass("hide")
     
     let t = document.getElementById("outTable")
-    document.querySelector(':root').style.setProperty('--tc', t.rows[0].cells.length)
+
     columns = t.rows[0].cells.length
     var start = 1440, end = 0
     
