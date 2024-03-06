@@ -73,6 +73,7 @@ select, option {
 #outTable tr td:not(:empty) {
     border: 2px solid black;
     border-top-width: 0;
+    color: var(--txt2);
     background-color: var(--altBG2);
     overflow: hidden;
     white-space: nowrap;

@@ -50,6 +50,12 @@ async function initOptions() {
 
     nameSel2.selectedIndex = 2
 
+    try {nameSel1.selectedIndex = cookieVars['personA']} 
+    catch {cCookie('personA', nameSel1.selectedIndex)}
+
+    try {document.getElementById("mode").selectedIndex = cookieVars['mode']} 
+    catch {cCookie('mode', mode.selectedIndex)}
+
     //document.getElementById("day").selectedIndex = 3
 
     pressBtn()
@@ -93,6 +99,10 @@ function pressBtn() {
             addPerson(i)
         } 
     }
+
+    cCookie('personA', document.getElementById("name1").selectedIndex)
+    cCookie('mode', mode)
+    
 }
 
 function addPerson(pIndex, day) {
@@ -219,9 +229,8 @@ function rmvAllClass(str) {
 }
 
 function test() {
-    //pressBtn()
-    let t = document.getElementById("outTable")
-    ret(window.getComputedStyle(t).getPropertyValue('width'))
+    swapTheme()
+    pressBtn()
 }
 
 function ret(s = "hi") {
