@@ -125,7 +125,7 @@ function addPerson(pIndex, day) {
 
     for (let lesson of lessons) {
     
-        t.rows[(lesson.start/minSep) + 1].cells[column].outerHTML = `<td style="border-top-width:2px;">${lesson.subject}</td>`
+        t.rows[(lesson.start/minSep) + 1].cells[column].outerHTML = `<td style="border-top-width:2px;font-family:'Yu Gothic Ui semibold';">${lesson.subject}</td>`
         
         if (((lesson.end - lesson.start)/minSep) >= 2) {
             if (String(t.rows[(lesson.start/minSep) + 2].cells[column].innerHTML).replace("^", "").trim() == "") {

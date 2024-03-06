@@ -12,7 +12,7 @@ function parseCookie() {
 
     if (document.cookie == "") {
 
-        cookieVars["theme"] = "light"
+        cookieVars["theme"] = "cpunk"
 
     } else {
 
@@ -54,7 +54,7 @@ function scrollBox(i) {
 
 function swapTheme(to) {
 
-    optLst = ['dark', 'light']
+    optLst = ['dark', 'light', 'cpunk']
     
     if (document.getElementById("theme").href.includes(cookieVars['theme']) && (to == null)) {
         for (const [index, element] of optLst.entries()) {
