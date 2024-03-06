@@ -5,13 +5,13 @@ class person {
 
     constructor(name) {
         this.name = name
-        this.monday = new Array
-        this.tuesday = new Array
-        this.wednesday = new Array
-        this.thursday = new Array
-        this.friday = new Array
-        this.saturday = new Array
-        this.sunday = new Array
+        this.Monday = new Array
+        this.Tuesday = new Array
+        this.Wednesday = new Array
+        this.Thursday = new Array
+        this.Friday = new Array
+        this.Saturday = new Array
+        this.Sunday = new Array
     }
 
 }
@@ -39,7 +39,7 @@ async function initOptions() {
 
     let d = new Date()
     document.getElementById("day").selectedIndex = d.getDay()
-
+    
     loadTableBase("a")
     classifyCSV(await loadCSV("/CSV/timetable.csv"))
     
@@ -47,7 +47,7 @@ async function initOptions() {
         nameSel1.add(new Option(fella.name, fella.name))
         nameSel2.add(new Option(fella.name, fella.name))
     }
-
+    
     nameSel2.selectedIndex = 2
 
     try {nameSel1.selectedIndex = cookieVars['personA']} 
@@ -55,7 +55,7 @@ async function initOptions() {
 
     try {document.getElementById("mode").selectedIndex = cookieVars['mode']} 
     catch {cCookie('mode', mode.selectedIndex)}
-
+    
     //document.getElementById("day").selectedIndex = 3
 
     pressBtn()
@@ -87,13 +87,13 @@ function loadTableBase(mode) {
 
 function pressBtn() {
     loadTableBase("a")
-    let mode = document.getElementById("mode").selectedIndex
+    let mode = 2//document.getElementById("mode").selectedIndex
     if (mode == 0) {
-        addPerson(document.getElementById("name1").selectedIndex, "monday")
-        addPerson(document.getElementById("name1").selectedIndex, "tuesday")
-        addPerson(document.getElementById("name1").selectedIndex, "wednesday")
-        addPerson(document.getElementById("name1").selectedIndex, "thursday")
-        addPerson(document.getElementById("name1").selectedIndex, "friday")
+        addPerson(document.getElementById("name1").selectedIndex, "Monday")
+        addPerson(document.getElementById("name1").selectedIndex, "Tuesday")
+        addPerson(document.getElementById("name1").selectedIndex, "Wednesday")
+        addPerson(document.getElementById("name1").selectedIndex, "Thursday")
+        addPerson(document.getElementById("name1").selectedIndex, "Friday")
     } else if (mode == 2) {
         for (let i=0; i < document.getElementById("name1").length; i++) {
             addPerson(i)
@@ -109,22 +109,22 @@ function addPerson(pIndex, day) {
     
     let t = document.getElementById("outTable")
     let column = t.rows[0].cells.length
-
+    
     if (day == null) {
         var day = document.getElementById("day").options[document.getElementById("day").selectedIndex].text
         t.rows[0].insertCell(column).outerHTML = `<th>${people[pIndex].name}</th>`
     } else {
         t.rows[0].insertCell(column).outerHTML = `<th>${day}</th>`
     }
-
+    
     let lessons = people[pIndex][day]
 
     for (let i=1; i <= (1440/minSep); i++) {
         t.rows[i].insertCell(column)
     }
-
-    for (let lesson of lessons) {
     
+    for (let lesson of lessons) {
+        
         t.rows[(lesson.start/minSep) + 1].cells[column].outerHTML = `<td style="border-top-width:2px;font-family:'Yu Gothic Ui semibold';">${lesson.subject}</td>`
         
         if (((lesson.end - lesson.start)/minSep) >= 2) {
@@ -188,7 +188,6 @@ async function loadCSV(s) {
     var output = []
 
     for (let csvRow of csvRows) {output.push(csvRow.split(','))}
-
     return output
 
 }
@@ -205,9 +204,10 @@ function classifyCSV(csvList) {
         for (let k=1; k < 8; k++) {
 
             let day = csvList[j+k]
-
+            
             //Each Lesson
             for (let z=0; z < ((day.length-1)/3); z++) {
+                let less = new lesson(day[(z*3)+1], day[(z*3)+2], day[(z*3)+3])
                 cPers[day[0]].push(new lesson(day[(z*3)+1], day[(z*3)+2], day[(z*3)+3]))
             }
 
