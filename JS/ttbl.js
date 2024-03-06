@@ -87,7 +87,7 @@ function loadTableBase(mode) {
 
 function pressBtn() {
     loadTableBase("a")
-    let mode = 2//document.getElementById("mode").selectedIndex
+    let mode = document.getElementById("mode").selectedIndex
     if (mode == 0) {
         addPerson(document.getElementById("name1").selectedIndex, "Monday")
         addPerson(document.getElementById("name1").selectedIndex, "Tuesday")

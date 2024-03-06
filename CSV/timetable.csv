@@ -9,15 +9,6 @@ Thursday,Computer Science,8:45,11:30,Maths,11:30,12:45
 Friday,PM,8:45,10:00,Maths,10:00,11:15
 Saturday
 
-Ryan
-Sunday
-Monday,IT,10:15,11:30,IT,13:30,14:45,Computer Science,14:45,16:00
-Tuesday,IT,12:15,13:30,IT,14:45,16:00
-Wednesday,Computer Science,8:45,10:00,IT,10:15,11:30
-Thursday,Computer Science,8:45,11:30,IT,12:15,13:30
-Friday,IT,8:45,11:30
-Saturday
-
 Troy
 Sunday
 Monday,Film,8:45,11:10,Computer Science, 14:45, 16:00
@@ -25,6 +16,15 @@ Tuesday,Film,8:45,11:10
 Wednesday,Computer Science,8:45,10:00,Film,10:00, 11:10
 Thursday,Computer Science,8:45,11:30,Film,13:30,16:00
 Friday,Form,8:45,10:00,Film,14:45,16:00
+Saturday
+
+Seth
+Sunday
+Monday,Music,8:45,11:10,PM,13:30,14:45,Graphics,14:45,16:00
+Tuesday,Business,8:45,11:30,Music,11:30,12:45
+Wednesday,Graphics,8:45,10:00,Music,10:00,11:10,Business,12:15,13:30
+Thursday,Graphics,8:45,11:30,Business,13:30,14:45
+Friday
 Saturday
 
 Harry
@@ -43,6 +43,15 @@ Tuesday,T&T M190,8:45,11:10,T&T B110,11:30,12:45,T&T B110,13:30,14:45
 Wednesday,T&T B110,8:45,11:10,T&T M109,11:30,12:45,T&T B110,13:30,16:00
 Thursday,T&T B108,8:45,11:10,PM,11:30,12:45,T&T M109,13:30,14:45,T&T B110,14:45,16:00
 Friday
+Saturday
+
+Ryan
+Sunday
+Monday,IT,10:15,11:30,IT,13:30,14:45,Computer Science,14:45,16:00
+Tuesday,IT,12:15,13:30,IT,14:45,16:00
+Wednesday,Computer Science,8:45,10:00,IT,10:15,11:30
+Thursday,Computer Science,8:45,11:30,IT,12:15,13:30
+Friday,IT,8:45,11:30
 Saturday
 
 Jed
