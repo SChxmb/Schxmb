@@ -19,7 +19,6 @@ function parseCookie() {
         cList = document.cookie.split(";")
 
         for (let cStr of cList) {
-            ret(cStr)
             cookieVars[cStr.split("=")[0].trim()] = cStr.split("=")[1].trim()
         }
 
