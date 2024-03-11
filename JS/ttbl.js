@@ -229,10 +229,4 @@ function rmvAllClass(str) {
 }
 
 function test() {
-    swapTheme()
-    pressBtn()
-}
-
-function ret(s = "hi") {
-    document.getElementById("test").innerHTML += String(s) + ";<br>"
 }

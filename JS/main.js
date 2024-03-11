@@ -32,16 +32,8 @@ function cCookie(varNam, varVal, path) {
     if (path == null) {path = '/'}
 
     cookieVars[varNam] = varVal
-    //cStr = ''
-    
-    //for (let cVar of Object.keys(cookieVars)) {
-    //    cStr += cVar + '=' + cookieVars[cVar] + '; '
-    //}
-    
-    //cStr += 'path=' + path + '; expires=Wed, 25 Dec 2030 23:59:59 UTC'
 
     document.cookie = varNam + '=' + varVal + '; path=/; expires=Wed, 25 Dec 2030 23:59:59 UTC'
-
 }
 
 function scrollBox(i) {
@@ -55,7 +47,7 @@ function scrollBox(i) {
 function swapTheme(to) {
 
     optLst = ['dark', 'light', 'cpunk']
-    
+
     if (document.getElementById("theme").href.includes(cookieVars['theme']) && (to == null)) {
         for (const [index, element] of optLst.entries()) {
             if (document.getElementById("theme").href.includes(element)) {
@@ -63,8 +55,9 @@ function swapTheme(to) {
                 else {to = optLst[0]}
             }
         }
-        if (to == 'undefined') {to = 'light'}
-        ret(to)
+        cCookie('theme', to)
+    } else if (to == 'undefined') {
+        to = 'light'
         cCookie('theme', to)
     } else {
         to = cookieVars['theme']
@@ -72,4 +65,8 @@ function swapTheme(to) {
 
     document.getElementById("theme").href = "/CSS/" + to + ".css"
 
+}
+
+function ret(s = "hi") {
+    document.getElementById("test").innerHTML += String(s) + ";<br>"
 }
