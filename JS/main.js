@@ -3,8 +3,9 @@ const cookieVars = new Object()
 function init() {
     document.getElementsByTagName("body").item(0).style.overflow = "hidden" //Y
     document.querySelector(':root').style.setProperty('--mh', String(window.innerHeight) + "px")
-    if (!(document.cookie.includes('theme'))) {document.cookie = "theme=dark; expires=Wed, 25 Dec 2030 23:59:59 UTC; path=/"}
+    if (!(document.cookie.includes('theme'))) {document.cookie = "theme=light; expires=Wed, 25 Dec 2030 23:59:59 UTC; path=/"}
     parseCookie()
+    ret(cookieVars.theme)
     swapTheme(cookieVars.theme)
 }
 
@@ -62,7 +63,8 @@ function swapTheme(to) {
                 else {to = optLst[0]}
             }
         }
-        if (to == 'undefined') {to == 'light'}
+        if (to == 'undefined') {to = 'light'}
+        ret(to)
         cCookie('theme', to)
     } else {
         to = cookieVars['theme']
