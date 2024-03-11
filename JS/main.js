@@ -58,10 +58,11 @@ function swapTheme(to) {
     if (document.getElementById("theme").href.includes(cookieVars['theme']) && (to == null)) {
         for (const [index, element] of optLst.entries()) {
             if (document.getElementById("theme").href.includes(element)) {
-                if (index < optLst.length - 2) {to = optLst[index + 1]} 
+                if (index < optLst.length - 1) {to = optLst[index + 1]} 
                 else {to = optLst[0]}
             }
         }
+        if (to == null) {to == 'light'}
         cCookie('theme', to)
     } else {
         to = cookieVars['theme']
