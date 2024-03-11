@@ -62,7 +62,7 @@ function swapTheme(to) {
                 else {to = optLst[0]}
             }
         }
-        if (to == null) {to == 'light'}
+        if (to == 'undefined') {to == 'light'}
         cCookie('theme', to)
     } else {
         to = cookieVars['theme']
